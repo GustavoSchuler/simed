@@ -14,6 +14,7 @@ namespace SisMed.WebUI.Controllers
     {
         private readonly ICidadeAppService mCidadeApp;
 
+
         public CidadesController(ICidadeAppService cidadeApp)
         {
             mCidadeApp = cidadeApp;

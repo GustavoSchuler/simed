@@ -1,6 +1,3 @@
-C:\Users\0164501\Documents\Visual Studio 2015\SistemaSisMed\SisMed\SisMed.Data\obj\Debug\SisMed.Data.csprojResolveAssemblyReference.cache
-C:\Users\0164501\Documents\Visual Studio 2015\SistemaSisMed\SisMed\SisMed.Data\obj\Debug\SisMed.Data.Migrations.Cidade.resources
-C:\Users\0164501\Documents\Visual Studio 2015\SistemaSisMed\SisMed\SisMed.Data\obj\Debug\SisMed.Data.csproj.GenerateResource.Cache
 C:\Users\0164501\Documents\Visual Studio 2015\SistemaSisMed\SisMed\SisMed.Data\bin\Debug\SisMed.Data.dll.config
 C:\Users\0164501\Documents\Visual Studio 2015\SistemaSisMed\SisMed\SisMed.Data\bin\Debug\SisMed.Data.dll
 C:\Users\0164501\Documents\Visual Studio 2015\SistemaSisMed\SisMed\SisMed.Data\bin\Debug\SisMed.Data.pdb
@@ -10,6 +7,9 @@ C:\Users\0164501\Documents\Visual Studio 2015\SistemaSisMed\SisMed\SisMed.Data\b
 C:\Users\0164501\Documents\Visual Studio 2015\SistemaSisMed\SisMed\SisMed.Data\bin\Debug\SisMed.Domain.pdb
 C:\Users\0164501\Documents\Visual Studio 2015\SistemaSisMed\SisMed\SisMed.Data\bin\Debug\EntityFramework.xml
 C:\Users\0164501\Documents\Visual Studio 2015\SistemaSisMed\SisMed\SisMed.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\0164501\Documents\Visual Studio 2015\SistemaSisMed\SisMed\SisMed.Data\obj\Debug\SisMed.Data.csprojResolveAssemblyReference.cache
+C:\Users\0164501\Documents\Visual Studio 2015\SistemaSisMed\SisMed\SisMed.Data\obj\Debug\SisMed.Data.Migrations.Cidade.resources
+C:\Users\0164501\Documents\Visual Studio 2015\SistemaSisMed\SisMed\SisMed.Data\obj\Debug\SisMed.Data.Migrations.Usuario.resources
+C:\Users\0164501\Documents\Visual Studio 2015\SistemaSisMed\SisMed\SisMed.Data\obj\Debug\SisMed.Data.csproj.GenerateResource.Cache
 C:\Users\0164501\Documents\Visual Studio 2015\SistemaSisMed\SisMed\SisMed.Data\obj\Debug\SisMed.Data.dll
 C:\Users\0164501\Documents\Visual Studio 2015\SistemaSisMed\SisMed\SisMed.Data\obj\Debug\SisMed.Data.pdb
-C:\Users\0164501\Documents\Visual Studio 2015\SistemaSisMed\SisMed\SisMed.Data\obj\Debug\SisMed.Data.Migrations.Usuario.resources

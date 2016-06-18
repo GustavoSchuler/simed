@@ -8,6 +8,7 @@ C:\Users\0164501\Documents\Visual Studio 2015\SistemaSisMed\SisMed\SisMedIdentit
 C:\Users\0164501\Documents\Visual Studio 2015\SistemaSisMed\SisMed\SisMedIdentity\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
 C:\Users\0164501\Documents\Visual Studio 2015\SistemaSisMed\SisMed\SisMedIdentity\bin\Debug\Microsoft.Owin.dll
 C:\Users\0164501\Documents\Visual Studio 2015\SistemaSisMed\SisMed\SisMedIdentity\bin\Debug\Microsoft.Owin.Security.dll
+C:\Users\0164501\Documents\Visual Studio 2015\SistemaSisMed\SisMed\SisMedIdentity\bin\Debug\Microsoft.Web.Infrastructure.dll
 C:\Users\0164501\Documents\Visual Studio 2015\SistemaSisMed\SisMed\SisMedIdentity\bin\Debug\EntityFramework.xml
 C:\Users\0164501\Documents\Visual Studio 2015\SistemaSisMed\SisMed\SisMedIdentity\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\0164501\Documents\Visual Studio 2015\SistemaSisMed\SisMed\SisMedIdentity\bin\Debug\Microsoft.AspNet.Identity.Core.xml
@@ -18,4 +19,3 @@ C:\Users\0164501\Documents\Visual Studio 2015\SistemaSisMed\SisMed\SisMedIdentit
 C:\Users\0164501\Documents\Visual Studio 2015\SistemaSisMed\SisMed\SisMedIdentity\obj\Debug\SisMedIdentity.csprojResolveAssemblyReference.cache
 C:\Users\0164501\Documents\Visual Studio 2015\SistemaSisMed\SisMed\SisMedIdentity\obj\Debug\SisMedIdentity.dll
 C:\Users\0164501\Documents\Visual Studio 2015\SistemaSisMed\SisMed\SisMedIdentity\obj\Debug\SisMedIdentity.pdb
-C:\Users\0164501\Documents\Visual Studio 2015\SistemaSisMed\SisMed\SisMedIdentity\bin\Debug\Microsoft.Web.Infrastructure.dll
