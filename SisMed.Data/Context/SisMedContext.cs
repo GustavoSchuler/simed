@@ -11,6 +11,7 @@ namespace SisMed.Data.Context
         public SisMedContext() : base("SisMed") { }
 
         public DbSet<Cidade> Cidades { get; set; }
+        public DbSet<Usuario> Usuarios { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -25,6 +26,7 @@ namespace SisMed.Data.Context
                 .Configure(p => p.HasMaxLength(100));
 
             modelBuilder.Configurations.Add(new CidadeConfiguration());
+            modelBuilder.Configurations.Add(new UsuarioConfiguration());
         }
     }
 }

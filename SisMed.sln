@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SisMed.Domain", "SisMed.Dom
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SisMed.Data", "SisMed.Data\SisMed.Data.csproj", "{16B3754B-93A0-42F3-872E-7054ADD7FA14}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SisMed.IoC", "SisMed.IoC\SisMed.IoC.csproj", "{6DB6325F-0A16-42A0-9495-E8648DDCECAF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SisMedIdentity", "SisMedIdentity\SisMedIdentity.csproj", "{7406DD2F-E5E9-4EE3-919E-79034A116437}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{16B3754B-93A0-42F3-872E-7054ADD7FA14}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{16B3754B-93A0-42F3-872E-7054ADD7FA14}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{16B3754B-93A0-42F3-872E-7054ADD7FA14}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DB6325F-0A16-42A0-9495-E8648DDCECAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DB6325F-0A16-42A0-9495-E8648DDCECAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DB6325F-0A16-42A0-9495-E8648DDCECAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DB6325F-0A16-42A0-9495-E8648DDCECAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7406DD2F-E5E9-4EE3-919E-79034A116437}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7406DD2F-E5E9-4EE3-919E-79034A116437}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7406DD2F-E5E9-4EE3-919E-79034A116437}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7406DD2F-E5E9-4EE3-919E-79034A116437}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
