@@ -50,3 +50,4 @@ C:\Users\0164501\Documents\Visual Studio 2015\SistemaSisMed\SisMed\SisMed.WebUI\
 C:\Users\0164501\Documents\Visual Studio 2015\SistemaSisMed\SisMed\SisMed.WebUI\bin\Newtonsoft.Json.xml
 C:\Users\0164501\Documents\Visual Studio 2015\SistemaSisMed\SisMed\SisMed.WebUI\obj\Debug\SisMed.WebUI.dll
 C:\Users\0164501\Documents\Visual Studio 2015\SistemaSisMed\SisMed\SisMed.WebUI\obj\Debug\SisMed.WebUI.pdb
+C:\Users\0164501\Documents\Visual Studio 2015\SistemaSisMed\SisMed\SisMed.WebUI\obj\Debug\SisMed.WebUI.csprojResolveAssemblyReference.cache
