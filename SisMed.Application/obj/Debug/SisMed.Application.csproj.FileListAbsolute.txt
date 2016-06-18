@@ -1,0 +1,7 @@
+C:\Users\0164501\Documents\Visual Studio 2015\SistemaSisMed\SisMed\SisMed.Application\bin\Debug\SisMed.Application.dll
+C:\Users\0164501\Documents\Visual Studio 2015\SistemaSisMed\SisMed\SisMed.Application\bin\Debug\SisMed.Application.pdb
+C:\Users\0164501\Documents\Visual Studio 2015\SistemaSisMed\SisMed\SisMed.Application\bin\Debug\SisMed.Domain.dll
+C:\Users\0164501\Documents\Visual Studio 2015\SistemaSisMed\SisMed\SisMed.Application\bin\Debug\SisMed.Domain.pdb
+C:\Users\0164501\Documents\Visual Studio 2015\SistemaSisMed\SisMed\SisMed.Application\obj\Debug\SisMed.Application.csprojResolveAssemblyReference.cache
+C:\Users\0164501\Documents\Visual Studio 2015\SistemaSisMed\SisMed\SisMed.Application\obj\Debug\SisMed.Application.dll
+C:\Users\0164501\Documents\Visual Studio 2015\SistemaSisMed\SisMed\SisMed.Application\obj\Debug\SisMed.Application.pdb

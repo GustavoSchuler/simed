@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SisMed.Application", "SisMed.Application\SisMed.Application.csproj", "{8B159356-8F95-42D4-AA76-4E24A1E0D618}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SisMed.WebUI", "SisMed.WebUI\SisMed.WebUI.csproj", "{9BC99A30-BE54-4A7B-A799-69B2510B499C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SisMed.Domain", "SisMed.Domain\SisMed.Domain.csproj", "{4AFEFCCC-E1D9-413D-9FD4-83E4115CCFE6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SisMed.Data", "SisMed.Data\SisMed.Data.csproj", "{16B3754B-93A0-42F3-872E-7054ADD7FA14}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8B159356-8F95-42D4-AA76-4E24A1E0D618}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B159356-8F95-42D4-AA76-4E24A1E0D618}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B159356-8F95-42D4-AA76-4E24A1E0D618}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B159356-8F95-42D4-AA76-4E24A1E0D618}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BC99A30-BE54-4A7B-A799-69B2510B499C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BC99A30-BE54-4A7B-A799-69B2510B499C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BC99A30-BE54-4A7B-A799-69B2510B499C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BC99A30-BE54-4A7B-A799-69B2510B499C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AFEFCCC-E1D9-413D-9FD4-83E4115CCFE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AFEFCCC-E1D9-413D-9FD4-83E4115CCFE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AFEFCCC-E1D9-413D-9FD4-83E4115CCFE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AFEFCCC-E1D9-413D-9FD4-83E4115CCFE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16B3754B-93A0-42F3-872E-7054ADD7FA14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16B3754B-93A0-42F3-872E-7054ADD7FA14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16B3754B-93A0-42F3-872E-7054ADD7FA14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16B3754B-93A0-42F3-872E-7054ADD7FA14}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
