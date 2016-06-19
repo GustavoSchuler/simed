@@ -31,6 +31,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Configurations\CidadeConfiguration.cs" />
+    <Compile Include="Configurations\ConsultaConfiguration.cs" />
+    <Compile Include="Configurations\EspecialidadeConfiguration.cs" />
+    <Compile Include="Configurations\MedicoConfiguration.cs" />
+    <Compile Include="Configurations\TempoConsultaConfiguration.cs" />
+    <Compile Include="Configurations\TipoConsultaConfiguration.cs" />
     <Compile Include="Configurations\UsuarioConfiguration.cs" />
     <Compile Include="Context\SisMedContext.cs" />
     <Compile Include="Migrations\201606170647022_Cidade.cs" />
@@ -40,6 +45,10 @@
     <Compile Include="Migrations\201606181602526_Usuario.cs" />
     <Compile Include="Migrations\201606181602526_Usuario.Designer.cs">
       <DependentUpon>201606181602526_Usuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606192107345_Consulta.cs" />
+    <Compile Include="Migrations\201606192107345_Consulta.Designer.cs">
+      <DependentUpon>201606192107345_Consulta.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -76,6 +85,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201606181602526_Usuario.resx">
       <DependentUpon>201606181602526_Usuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606192107345_Consulta.resx">
+      <DependentUpon>201606192107345_Consulta.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
