@@ -31,6 +31,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Entities\Cidade.cs" />
+    <Compile Include="Entities\Consulta.cs" />
+    <Compile Include="Entities\Especialidade.cs" />
+    <Compile Include="Entities\Medico.cs" />
+    <Compile Include="Entities\TempoConsulta.cs" />
+    <Compile Include="Entities\TipoConsulta.cs" />
     <Compile Include="Entities\Usuario.cs" />
     <Compile Include="Interfaces\Repositories\ICidadeRepository.cs" />
     <Compile Include="Interfaces\Repositories\IRepositoryBase.cs" />

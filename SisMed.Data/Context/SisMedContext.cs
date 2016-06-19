@@ -12,6 +12,11 @@ namespace SisMed.Data.Context
 
         public DbSet<Cidade> Cidades { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<Consulta> Consultas { get; set; }
+        public DbSet<TempoConsulta> TempoConsultas { get; set; }
+        public DbSet<Medico> Medicos { get; set; }
+        public DbSet<TipoConsulta> TipoConsultas { get; set; }
+        public DbSet<Especialidade> Especialidades { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

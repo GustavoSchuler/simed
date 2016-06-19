@@ -28,3 +28,4 @@ C:\Users\Gustavo Schüler\Documents\Visual Studio 2015\Projects\simed\SisMed.Dat
 C:\Users\Gustavo Schüler\Documents\Visual Studio 2015\Projects\simed\SisMed.Data\obj\Debug\SisMed.Data.csproj.GenerateResource.Cache
 C:\Users\Gustavo Schüler\Documents\Visual Studio 2015\Projects\simed\SisMed.Data\obj\Debug\SisMed.Data.dll
 C:\Users\Gustavo Schüler\Documents\Visual Studio 2015\Projects\simed\SisMed.Data\obj\Debug\SisMed.Data.pdb
+C:\Users\Gustavo Schüler\Documents\Visual Studio 2015\Projects\simed\SisMed.Data\obj\Debug\SisMed.Data.Migrations.Consulta.resources
