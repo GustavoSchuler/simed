@@ -2,3 +2,8 @@ C:\Users\0164501\Documents\Visual Studio 2015\SistemaSisMed\SisMed\SisMed.Domain
 C:\Users\0164501\Documents\Visual Studio 2015\SistemaSisMed\SisMed\SisMed.Domain\bin\Debug\SisMed.Domain.pdb
 C:\Users\0164501\Documents\Visual Studio 2015\SistemaSisMed\SisMed\SisMed.Domain\obj\Debug\SisMed.Domain.dll
 C:\Users\0164501\Documents\Visual Studio 2015\SistemaSisMed\SisMed\SisMed.Domain\obj\Debug\SisMed.Domain.pdb
+C:\Users\Gustavo Schüler\Documents\Visual Studio 2015\Projects\simed\SisMed.Domain\bin\Debug\SisMed.Domain.dll
+C:\Users\Gustavo Schüler\Documents\Visual Studio 2015\Projects\simed\SisMed.Domain\bin\Debug\SisMed.Domain.pdb
+C:\Users\Gustavo Schüler\Documents\Visual Studio 2015\Projects\simed\SisMed.Domain\obj\Debug\SisMed.Domain.csprojResolveAssemblyReference.cache
+C:\Users\Gustavo Schüler\Documents\Visual Studio 2015\Projects\simed\SisMed.Domain\obj\Debug\SisMed.Domain.dll
+C:\Users\Gustavo Schüler\Documents\Visual Studio 2015\Projects\simed\SisMed.Domain\obj\Debug\SisMed.Domain.pdb

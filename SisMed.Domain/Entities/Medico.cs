@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SisMed.Domain.Entities
 {
-    class Medico
+    public class Medico
     {
         public int Id { get; set; }
         public int Crm { get; set; }

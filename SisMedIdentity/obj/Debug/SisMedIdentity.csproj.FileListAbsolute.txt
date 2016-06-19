@@ -19,3 +19,24 @@ C:\Users\0164501\Documents\Visual Studio 2015\SistemaSisMed\SisMed\SisMedIdentit
 C:\Users\0164501\Documents\Visual Studio 2015\SistemaSisMed\SisMed\SisMedIdentity\obj\Debug\SisMedIdentity.csprojResolveAssemblyReference.cache
 C:\Users\0164501\Documents\Visual Studio 2015\SistemaSisMed\SisMed\SisMedIdentity\obj\Debug\SisMedIdentity.dll
 C:\Users\0164501\Documents\Visual Studio 2015\SistemaSisMed\SisMed\SisMedIdentity\obj\Debug\SisMedIdentity.pdb
+C:\Users\Gustavo Schüler\Documents\Visual Studio 2015\Projects\simed\SisMedIdentity\bin\Debug\SisMedIdentity.dll.config
+C:\Users\Gustavo Schüler\Documents\Visual Studio 2015\Projects\simed\SisMedIdentity\bin\Debug\SisMedIdentity.dll
+C:\Users\Gustavo Schüler\Documents\Visual Studio 2015\Projects\simed\SisMedIdentity\bin\Debug\SisMedIdentity.pdb
+C:\Users\Gustavo Schüler\Documents\Visual Studio 2015\Projects\simed\SisMedIdentity\bin\Debug\EntityFramework.dll
+C:\Users\Gustavo Schüler\Documents\Visual Studio 2015\Projects\simed\SisMedIdentity\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Gustavo Schüler\Documents\Visual Studio 2015\Projects\simed\SisMedIdentity\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Gustavo Schüler\Documents\Visual Studio 2015\Projects\simed\SisMedIdentity\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Gustavo Schüler\Documents\Visual Studio 2015\Projects\simed\SisMedIdentity\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\Gustavo Schüler\Documents\Visual Studio 2015\Projects\simed\SisMedIdentity\bin\Debug\Microsoft.Owin.dll
+C:\Users\Gustavo Schüler\Documents\Visual Studio 2015\Projects\simed\SisMedIdentity\bin\Debug\Microsoft.Owin.Security.dll
+C:\Users\Gustavo Schüler\Documents\Visual Studio 2015\Projects\simed\SisMedIdentity\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\Gustavo Schüler\Documents\Visual Studio 2015\Projects\simed\SisMedIdentity\bin\Debug\EntityFramework.xml
+C:\Users\Gustavo Schüler\Documents\Visual Studio 2015\Projects\simed\SisMedIdentity\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Gustavo Schüler\Documents\Visual Studio 2015\Projects\simed\SisMedIdentity\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Gustavo Schüler\Documents\Visual Studio 2015\Projects\simed\SisMedIdentity\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Gustavo Schüler\Documents\Visual Studio 2015\Projects\simed\SisMedIdentity\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\Gustavo Schüler\Documents\Visual Studio 2015\Projects\simed\SisMedIdentity\bin\Debug\Microsoft.Owin.xml
+C:\Users\Gustavo Schüler\Documents\Visual Studio 2015\Projects\simed\SisMedIdentity\bin\Debug\Microsoft.Owin.Security.xml
+C:\Users\Gustavo Schüler\Documents\Visual Studio 2015\Projects\simed\SisMedIdentity\obj\Debug\SisMedIdentity.csprojResolveAssemblyReference.cache
+C:\Users\Gustavo Schüler\Documents\Visual Studio 2015\Projects\simed\SisMedIdentity\obj\Debug\SisMedIdentity.dll
+C:\Users\Gustavo Schüler\Documents\Visual Studio 2015\Projects\simed\SisMedIdentity\obj\Debug\SisMedIdentity.pdb
