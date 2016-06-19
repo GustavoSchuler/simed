@@ -10,6 +10,7 @@ using System.Web.Mvc;
 
 namespace SisMed.WebUI.Controllers
 {
+    [Authorize]
     public class CidadesController : Controller
     {
         private readonly ICidadeAppService mCidadeApp;

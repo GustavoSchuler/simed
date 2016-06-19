@@ -12,7 +12,7 @@ namespace SisMedIdentity.Context
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>, IDisposable
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("SisMed", throwIfV1Schema: false)
         {
         }
 
