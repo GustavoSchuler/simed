@@ -38,13 +38,28 @@
     <Compile Include="Entities\TipoConsulta.cs" />
     <Compile Include="Entities\Usuario.cs" />
     <Compile Include="Interfaces\Repositories\ICidadeRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IConsultaRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IEspecialidadeRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IMedicoRepository.cs" />
     <Compile Include="Interfaces\Repositories\IRepositoryBase.cs" />
+    <Compile Include="Interfaces\Repositories\ITempoConsultaRepository.cs" />
+    <Compile Include="Interfaces\Repositories\ITipoConsultaRepository.cs" />
     <Compile Include="Interfaces\Repositories\IUsuarioRepository.cs" />
     <Compile Include="Interfaces\Services\ICidadeService.cs" />
+    <Compile Include="Interfaces\Services\IConsultaService.cs" />
+    <Compile Include="Interfaces\Services\IEspecialidadeService.cs" />
+    <Compile Include="Interfaces\Services\IMedicoService.cs" />
     <Compile Include="Interfaces\Services\IServiceBase.cs" />
+    <Compile Include="Interfaces\Services\ITempoConsultaService.cs" />
+    <Compile Include="Interfaces\Services\ITipoConsultaService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CidadeService.cs" />
+    <Compile Include="Services\ConsultaService.cs" />
+    <Compile Include="Services\EspecialidadeService.cs" />
+    <Compile Include="Services\MedicoService.cs" />
     <Compile Include="Services\ServiceBase.cs" />
+    <Compile Include="Services\TempoConsultaService.cs" />
+    <Compile Include="Services\TipoConsultaService.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
