@@ -27,12 +27,6 @@ namespace SisMed.WebUI.Controllers
             return View(clienteViewModel);
         }
 
-        // GET: Cidade/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
         // GET: Cidade/Create
         public ActionResult Create()
         {
@@ -41,62 +35,62 @@ namespace SisMed.WebUI.Controllers
 
         // POST: Cidade/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(CidadeViewModel cidade)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add insert logic here
+                var clienteDomain = Mapper.Map<CidadeViewModel, Cidade>(cidade);
+                mCidadeApp.Add(clienteDomain);
 
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+
+            return View(cidade);
         }
 
         // GET: Cidade/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var cidade = mCidadeApp.GetById(id);
+            var cidadeViewModel = Mapper.Map<Cidade, CidadeViewModel>(cidade);
+
+            return View(cidadeViewModel);
         }
 
         // POST: Cidade/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(CidadeViewModel cidade)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add update logic here
+                var cidadeDomain = Mapper.Map<CidadeViewModel, Cidade>(cidade);
+                mCidadeApp.Update(cidadeDomain);
+            }
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction("Index");
         }
 
         // GET: Cidade/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var cidade = mCidadeApp.GetById(id);
+            var cidadeViewModel = Mapper.Map<Cidade, CidadeViewModel>(cidade);
+
+            return View(cidadeViewModel);
         }
 
         // POST: Cidade/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
-            try
-            {
-                // TODO: Add delete logic here
+            var cidade = mCidadeApp.GetById(id);
+            var cidadeViewModel = Mapper.Map<Cidade, CidadeViewModel>(cidade);
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            mCidadeApp.Remove(cidade);
+
+            return RedirectToAction("Index");
         }
     }
 }
