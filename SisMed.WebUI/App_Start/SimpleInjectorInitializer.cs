@@ -28,18 +28,6 @@ namespace SisMed.WebUI.App_Start
             // Chamada dos módulos do Simple Injector
             InitializeContainer(container);
 
-            // Necessário para registrar o ambiente do Owin que é dependência do Identity
-            // Feito fora da camada de IoC para não levar o System.Web para fora
-            container.RegisterPerWebRequest(() =>
-            {
-                if (HttpContext.Current != null && HttpContext.Current.Items["owin.Environment"] == null && container.IsVerifying)
-                {
-                    return new OwinContext().Authentication;
-                }
-                return HttpContext.Current.GetOwinContext().Authentication;
-
-            });
-
             container.RegisterMvcControllers(Assembly.GetExecutingAssembly());
 
             container.Verify();

@@ -82,10 +82,6 @@
       <Project>{4afefccc-e1d9-413d-9fd4-83e4115ccfe6}</Project>
       <Name>SisMed.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SisMedIdentity\SisMedIdentity.csproj">
-      <Project>{7406DD2F-E5E9-4EE3-919E-79034A116437}</Project>
-      <Name>SisMedIdentity</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
