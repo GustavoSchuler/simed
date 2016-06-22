@@ -10,7 +10,7 @@ namespace SisMed.WebUI.ViewModel
     public class TipoConsultaViewModel
     {
         [Key]
-        public int TipoModeloId { get; set; }
+        public int Id { get; set; }
 
         [Required(ErrorMessage = "Preencha o campo descrição")]
         [MaxLength(150, ErrorMessage = "Máximo de {0} caracteres")]
