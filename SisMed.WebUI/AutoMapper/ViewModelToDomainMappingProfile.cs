@@ -16,6 +16,7 @@ namespace ProjetoModeloDDD.MVC.AutoMapper
         protected override void Configure()
         {
             CreateMap<Cidade, CidadeViewModel>();
+            CreateMap<TipoConsulta, TipoConsultaViewModel>();
         }
     }
 }

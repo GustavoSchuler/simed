@@ -183,10 +183,12 @@
     <Compile Include="AutoMapper\ViewModelToDomainMappingProfile.cs" />
     <Compile Include="Controllers\CidadesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TipoConsultaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\TipoConsultaViewModel.cs" />
     <Compile Include="ViewModel\CidadeViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -235,6 +237,10 @@
     <Content Include="Views\Cidades\Create.cshtml" />
     <Content Include="Views\Cidades\Delete.cshtml" />
     <Content Include="Views\Cidades\Edit.cshtml" />
+    <Content Include="Views\TipoConsulta\Create.cshtml" />
+    <Content Include="Views\TipoConsulta\Delete.cshtml" />
+    <Content Include="Views\TipoConsulta\Edit.cshtml" />
+    <Content Include="Views\TipoConsulta\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
