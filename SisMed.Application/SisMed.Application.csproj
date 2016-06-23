@@ -40,11 +40,13 @@
     <Compile Include="Interface\IEspecialidadeAppService.cs" />
     <Compile Include="Interface\IMedicoAppService.cs" />
     <Compile Include="Interface\ITempoConsultaAppService.cs" />
+    <Compile Include="Interface\IUsuarioAppService.cs" />
     <Compile Include="Interface\ITipoConsultaAppService.cs" />
     <Compile Include="MedicoAppService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TempoConsultaAppService.cs" />
     <Compile Include="TipoConsultaAppService.cs" />
+    <Compile Include="UsuarioAppService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

@@ -9,7 +9,7 @@ using SisMed.Data.Context;
 
 namespace SisMed.Data.Repositories
 {
-    public class UsuarioRepository : IUsuarioRepository
+    public class UsuarioRepository : RepositoryBase<Domain.Entities.Usuario>, IUsuarioRepository
     {
         private readonly SisMedContext mDb;
 
@@ -32,6 +32,11 @@ namespace SisMed.Data.Repositories
         public IEnumerable<Usuario> ObterTodos()
         {
             return mDb.Usuarios.ToList();
+        }
+
+        public Usuario ObterAutenticacao(Usuario usuario)
+        {
+            return mDb.Usuarios.Find(usuario);
         }
     }
 }

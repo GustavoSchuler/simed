@@ -5,12 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SisMed.Domain.Interfaces.Repositories
+namespace SisMed.Application.Interface
 {
-    public interface IUsuarioRepository : IRepositoryBase<Usuario>, IDisposable
+    public interface IUsuarioAppService : IAppServiceBase<Usuario>
     {
-        Usuario ObterPorId(string id);
-        IEnumerable<Usuario> ObterTodos();
         Usuario ObterAutenticacao(Usuario usuario);
     }
 }

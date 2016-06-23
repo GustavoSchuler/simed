@@ -15,10 +15,16 @@ namespace SisMed.Domain.Entities
 
         public string Id { get; set; }
 
-        public virtual string Email { get; set; }
+        public string Email { get; set; }
 
-        public virtual string PasswordHash { get; set; }
+        public string PasswordHash { get; set; }
 
-        public virtual string UserName { get; set; }
+        public string UserName { get; set; }
+        public Papel Papel { get; set; } 
+    }
+
+    public enum Papel
+    {
+        USUARIO = 0, MEDICO = 1, ADMIN = 2
     }
 }

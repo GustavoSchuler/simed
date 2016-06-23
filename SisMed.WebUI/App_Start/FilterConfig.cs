@@ -1,4 +1,4 @@
-﻿using System.Web;
+﻿using SisMed.WebUI.Security;
 using System.Web.Mvc;
 
 namespace SisMed.WebUI
@@ -8,6 +8,7 @@ namespace SisMed.WebUI
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
+            filters.Add(new BasicAuth());
         }
     }
 }

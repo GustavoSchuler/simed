@@ -12,8 +12,6 @@ namespace SisMed.IoC
     {
         public static void Register(Container container)
         {
-            container.RegisterPerWebRequest<IUsuarioRepository, UsuarioRepository>();
-
             container.Register<ICidadeAppService, CidadeAppService>(Lifestyle.Scoped);
             container.Register<ICidadeService, CidadeService>(Lifestyle.Scoped);
             container.Register<ICidadeRepository, CidadeRepository>(Lifestyle.Scoped);
@@ -37,6 +35,10 @@ namespace SisMed.IoC
             container.Register<ITipoConsultaAppService, TipoConsultaAppService>(Lifestyle.Scoped);
             container.Register<ITipoConsultaService, TipoConsultaService>(Lifestyle.Scoped);
             container.Register<ITipoConsultaRepository, TipoConsultaRepository>(Lifestyle.Scoped);
+
+            container.Register<IUsuarioAppService, UsuarioAppService>(Lifestyle.Scoped);
+            container.Register<IUsuarioService, UsuarioService>(Lifestyle.Scoped);
+            container.Register<IUsuarioRepository, UsuarioRepository>(Lifestyle.Scoped);
         }
     }
 }
