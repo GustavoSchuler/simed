@@ -1,15 +1,18 @@
 ﻿using AutoMapper;
 using SisMed.Application.Interface;
 using SisMed.Domain.Entities;
+using SisMed.WebUI.Security;
 using SisMed.WebUI.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace SisMed.WebUI.Controllers
 {
+    [BasicAuth(Roles = "ADMIN")]
     public class CidadesController : Controller
     {
         private readonly ICidadeAppService mCidadeApp;

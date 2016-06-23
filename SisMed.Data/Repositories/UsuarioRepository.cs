@@ -36,7 +36,7 @@ namespace SisMed.Data.Repositories
 
         public Usuario ObterAutenticacao(Usuario usuario)
         {
-            return mDb.Usuarios.Find(usuario);
+            return mDb.Usuarios.FirstOrDefault(u => u.Email == usuario.Email && u.PasswordHash == usuario.PasswordHash);
         }
     }
 }

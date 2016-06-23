@@ -22,11 +22,11 @@ namespace SisMed.Data.Configurations
                 .IsRequired()
                 .HasMaxLength(256);
 
-            Property(u => u.UserName)
-                .IsRequired()
-                .HasMaxLength(256);
+            Property(u => u.PasswordHash)
+                .IsRequired().
+                HasMaxLength(128);
 
-            ToTable("AspNetUsers");
+            Property(u => u.Papel);
         }
     }
 }

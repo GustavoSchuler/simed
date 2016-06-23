@@ -22,7 +22,7 @@ namespace SisMed.WebUI.Security
 
             FormsAuthentication.SetAuthCookie(usuarioLogado.Email, true);
 
-            HttpContext.Current.Session["USUARIO_LOGADO"] = usuarioLogado;
+            HttpContext.Current.Session[USUARIO_LOGADO] = usuarioLogado;
         }
     }
 }
