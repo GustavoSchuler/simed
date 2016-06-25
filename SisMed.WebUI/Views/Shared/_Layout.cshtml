@@ -23,9 +23,20 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Cidades", "Index", "Cidades")</li>
-                    <li>@Html.ActionLink("TipoConsulta", "Index", "TipoConsulta")</li>
-                    <li>@Html.ActionLink("Login", "Index", "Auth")</li>
+                    @if (Request.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Cidades", "Index", "Cidades")</li>
+                        <li>@Html.ActionLink("TipoConsulta", "Index", "TipoConsulta")</li>
+                    }
+                    
+                    @if (Request.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Logout", "Logout", "Auth")</li>
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("Login", "Index", "Auth")</li>
+                    }
                 </ul>
             </div>
         </div>

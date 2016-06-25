@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace SisMed.WebUI.Controllers
 {
@@ -46,6 +47,40 @@ namespace SisMed.WebUI.Controllers
             ModelState.AddModelError("INVALID_LOGIN", "Usuário ou senha inválidos.");
 
             return View("Index", usuarioViewModel);
+        }
+
+        [AllowAnonymous]
+        public ActionResult Register()
+        {
+            if(SessionManager.UsuarioLogado != null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            return View(); 
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public ActionResult Register(UsuarioViewModel usuarioViewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                var usuarioDomain = Mapper.Map<UsuarioViewModel, Usuario>(usuarioViewModel);
+
+                mUsuarioApp.Add(usuarioDomain);
+            }
+
+            // If we got this far, something failed, redisplay form
+            return View("Index", usuarioViewModel);
+        }
+
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+
+            return RedirectToAction("Index", "Home");
         }
     }
 }

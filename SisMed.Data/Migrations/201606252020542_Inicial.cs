@@ -3,10 +3,19 @@ namespace SisMed.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Consulta : DbMigration
+    public partial class Inicial : DbMigration
     {
         public override void Up()
         {
+            CreateTable(
+                "dbo.Cidade",
+                c => new
+                    {
+                        CidadeID = c.Int(nullable: false, identity: true),
+                        NomeCidade = c.String(nullable: false, maxLength: 150, unicode: false),
+                    })
+                .PrimaryKey(t => t.CidadeID);
+            
             CreateTable(
                 "dbo.Consulta",
                 c => new
@@ -20,12 +29,12 @@ namespace SisMed.Data.Migrations
                         Observacao = c.String(maxLength: 100, unicode: false),
                         Medico_Id = c.Int(),
                         TipoConsulta_Id = c.Int(),
-                        Usuario_Id = c.String(maxLength: 128, unicode: false),
+                        Usuario_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Medico", t => t.Medico_Id)
                 .ForeignKey("dbo.TipoConsulta", t => t.TipoConsulta_Id)
-                .ForeignKey("dbo.AspNetUsers", t => t.Usuario_Id)
+                .ForeignKey("dbo.Usuario", t => t.Usuario_Id)
                 .Index(t => t.Medico_Id)
                 .Index(t => t.TipoConsulta_Id)
                 .Index(t => t.Usuario_Id);
@@ -75,6 +84,17 @@ namespace SisMed.Data.Migrations
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
+                "dbo.Usuario",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Email = c.String(nullable: false, maxLength: 256, unicode: false),
+                        PasswordHash = c.String(nullable: false, maxLength: 128, unicode: false),
+                        Papel = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
                 "dbo.TempoConsulta",
                 c => new
                     {
@@ -97,7 +117,7 @@ namespace SisMed.Data.Migrations
         {
             DropForeignKey("dbo.TempoConsulta", "TipoConsulta_Id", "dbo.TipoConsulta");
             DropForeignKey("dbo.TempoConsulta", "Medico_Id", "dbo.Medico");
-            DropForeignKey("dbo.Consulta", "Usuario_Id", "dbo.AspNetUsers");
+            DropForeignKey("dbo.Consulta", "Usuario_Id", "dbo.Usuario");
             DropForeignKey("dbo.Consulta", "TipoConsulta_Id", "dbo.TipoConsulta");
             DropForeignKey("dbo.Consulta", "Medico_Id", "dbo.Medico");
             DropForeignKey("dbo.Medico", "Especialidade_Id", "dbo.Especialidade");
@@ -110,10 +130,12 @@ namespace SisMed.Data.Migrations
             DropIndex("dbo.Consulta", new[] { "TipoConsulta_Id" });
             DropIndex("dbo.Consulta", new[] { "Medico_Id" });
             DropTable("dbo.TempoConsulta");
+            DropTable("dbo.Usuario");
             DropTable("dbo.TipoConsulta");
             DropTable("dbo.Especialidade");
             DropTable("dbo.Medico");
             DropTable("dbo.Consulta");
+            DropTable("dbo.Cidade");
         }
     }
 }

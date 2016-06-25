@@ -38,21 +38,9 @@
     <Compile Include="Configurations\TipoConsultaConfiguration.cs" />
     <Compile Include="Configurations\UsuarioConfiguration.cs" />
     <Compile Include="Context\SisMedContext.cs" />
-    <Compile Include="Migrations\201606170647022_Cidade.cs" />
-    <Compile Include="Migrations\201606170647022_Cidade.Designer.cs">
-      <DependentUpon>201606170647022_Cidade.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606181602526_Usuario.cs" />
-    <Compile Include="Migrations\201606181602526_Usuario.Designer.cs">
-      <DependentUpon>201606181602526_Usuario.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606192107345_Consulta.cs" />
-    <Compile Include="Migrations\201606192107345_Consulta.Designer.cs">
-      <DependentUpon>201606192107345_Consulta.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606230024161_AlterandoUsuario.cs" />
-    <Compile Include="Migrations\201606230024161_AlterandoUsuario.Designer.cs">
-      <DependentUpon>201606230024161_AlterandoUsuario.cs</DependentUpon>
+    <Compile Include="Migrations\201606252020542_Inicial.cs" />
+    <Compile Include="Migrations\201606252020542_Inicial.Designer.cs">
+      <DependentUpon>201606252020542_Inicial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -81,7 +69,6 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\SisMed.Domain\SisMed.Domain.csproj">
       <Project>{4afefccc-e1d9-413d-9fd4-83e4115ccfe6}</Project>
@@ -89,17 +76,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201606170647022_Cidade.resx">
-      <DependentUpon>201606170647022_Cidade.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606181602526_Usuario.resx">
-      <DependentUpon>201606181602526_Usuario.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606192107345_Consulta.resx">
-      <DependentUpon>201606192107345_Consulta.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606230024161_AlterandoUsuario.resx">
-      <DependentUpon>201606230024161_AlterandoUsuario.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201606252020542_Inicial.resx">
+      <DependentUpon>201606252020542_Inicial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

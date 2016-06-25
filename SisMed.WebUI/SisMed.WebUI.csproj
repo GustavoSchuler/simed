@@ -236,8 +236,6 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Cidades\Index.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Cidades\Create.cshtml" />
     <Content Include="Views\Cidades\Delete.cshtml" />
     <Content Include="Views\Cidades\Edit.cshtml" />
@@ -246,6 +244,7 @@
     <Content Include="Views\TipoConsulta\Edit.cshtml" />
     <Content Include="Views\TipoConsulta\Index.cshtml" />
     <Content Include="Views\Auth\Index.cshtml" />
+    <Content Include="Views\Auth\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
