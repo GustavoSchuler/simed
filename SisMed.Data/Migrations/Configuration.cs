@@ -14,18 +14,11 @@ namespace SisMed.Data.Migrations
 
         protected override void Seed(SisMed.Data.Context.SisMedContext context)
         {
-            //  This method will be called after migrating to the latest version.
-
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+            context.Usuarios.AddOrUpdate(
+                u => u.Id, 
+                new Domain.Entities.Usuario() { Id = 1, Email = "admin@admin.com", PasswordHash = "123123", Papel = Domain.Entities.Papel.ADMIN },
+                new Domain.Entities.Usuario() { Id = 2, Email = "usuario@usuario.com", PasswordHash = "123123", Papel = Domain.Entities.Papel.USUARIO },
+                new Domain.Entities.Usuario() { Id = 3, Email = "medico@medico.com", PasswordHash = "123123", Papel = Domain.Entities.Papel.MEDICO });
         }
     }
 }
