@@ -56,6 +56,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CidadeService.cs" />
     <Compile Include="Services\ConsultaService.cs" />
+    <Compile Include="Services\CriptoService.cs" />
     <Compile Include="Services\EspecialidadeService.cs" />
     <Compile Include="Services\MedicoService.cs" />
     <Compile Include="Services\ServiceBase.cs" />
