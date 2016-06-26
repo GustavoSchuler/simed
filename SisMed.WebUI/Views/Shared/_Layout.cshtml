@@ -37,11 +37,18 @@
                                 <li>@Html.ActionLink("Usuários", "Index", "Usuarios")</li>
                             </ul>
                         </li>
-                        <li>@Html.ActionLink("Logout", "Logout", "Auth")</li>
+                        <li>@Html.ActionLink("Consultas", "", "")</li>
+                        <li>@Html.ActionLink("Meus horários", "", "")</li>
                     }
                     else
                     {
                         <li>@Html.ActionLink("Login", "Index", "Auth")</li>
+                    }
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    @if (Request.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Logout", "Logout", "Auth")</li>
                     }
                 </ul>
             </div>
