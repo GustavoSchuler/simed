@@ -15,6 +15,7 @@ namespace SisMed.WebUI.Security
     public class BasicAuth : AuthorizeAttribute
     {
         public override void OnAuthorization(AuthorizationContext filterContext)
+
         {
 
             if (filterContext.ActionDescriptor.GetCustomAttributes(typeof(AllowAnonymousAttribute), true).Any())

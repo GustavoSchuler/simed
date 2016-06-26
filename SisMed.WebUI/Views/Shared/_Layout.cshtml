@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - SiMed</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -23,27 +23,37 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     @if (Request.IsAuthenticated)
                     {
+                        if (HttpContext.Current.User.IsInRole("ADMIN") || HttpContext.Current.User.IsInRole("MEDICO"))
+                        {
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                                 Cadastros
                                 <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li>@Html.ActionLink("Cidades", "Index", "Cidades")</li>
-                                <li>@Html.ActionLink("Especialidades", "Index", "Especialidades")</li>
-                                <li>@Html.ActionLink("Médicos", "Index", "Medicos")</li>
-                                <li>@Html.ActionLink("Tipos de Consulta", "Index", "TipoConsulta")</li>
-                                <li>@Html.ActionLink("Tempo Consulta", "Index", "TempoConsulta")</li>
-                                <li>@Html.ActionLink("Usuários", "Index", "Usuarios")</li>
+                                @if (HttpContext.Current.User.IsInRole("ADMIN"))
+                                {
+                                    <li>@Html.ActionLink("Cidades", "Index", "Cidades")</li>
+                                    <li>@Html.ActionLink("Especialidades", "Index", "Especialidades")</li>
+                                    <li>@Html.ActionLink("Médicos", "Index", "Medicos")</li>
+                                    <li>@Html.ActionLink("Tipos de Consulta", "Index", "TipoConsulta")</li>
+                                    <li>@Html.ActionLink("Tempo Consulta", "Index", "TempoConsulta")</li>
+                                    <li>@Html.ActionLink("Usuários", "Index", "Usuarios")</li>
+                                }
+                                else if (HttpContext.Current.User.IsInRole("MEDICO"))
+                                {
+                                    <li>@Html.ActionLink("Tempo Consulta", "Index", "TempoConsulta")</li>
+                                }
                             </ul>
                         </li>
                         <li>@Html.ActionLink("Consultas", "", "")</li>
                         <li>@Html.ActionLink("Meus horários", "", "")</li>
+                        }
                     }
                     else
                     {
-                        <li>@Html.ActionLink("Login", "Index", "Auth")</li>
-                    }
+                    <li>@Html.ActionLink("Login", "Index", "Auth")</li>
+                }
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     @if (Request.IsAuthenticated)
