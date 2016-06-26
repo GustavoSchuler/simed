@@ -15,10 +15,14 @@ namespace SisMed.WebUI.Controllers
     public class MedicosController : Controller
     {
         private readonly IMedicoAppService mMedicoApp;
+        private readonly ICidadeAppService mCidadeApp;
+        private readonly IEspecialidadeAppService mEspecialidadeApp;
 
-        public MedicosController(IMedicoAppService MedicoApp)
+        public MedicosController(IMedicoAppService MedicoApp, IEspecialidadeAppService EspecialidadeApp, ICidadeAppService CidadeApp)
         {
             mMedicoApp = MedicoApp;
+            mEspecialidadeApp = EspecialidadeApp;
+            mCidadeApp = CidadeApp;
         }
 
         public ActionResult Index()
@@ -33,7 +37,14 @@ namespace SisMed.WebUI.Controllers
 
         public ActionResult Create()
         {
-            return View();
+            MedicoViewModel medicoViewModel =
+                new MedicoViewModel()
+                {
+                    Especialidades = mEspecialidadeApp.GetAll(),
+                    Cidades = mCidadeApp.GetAll()
+                };
+
+            return View(medicoViewModel);
         }
 
         [HttpPost]

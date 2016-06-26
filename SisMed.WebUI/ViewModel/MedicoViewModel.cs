@@ -1,5 +1,7 @@
-﻿using System;
+﻿using SisMed.Domain.Entities;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,8 +32,12 @@ namespace SisMed.WebUI.ViewModel
 
         public DateTime HorarioFinal { get; set; }
 
-        public int Cidade { get; set; }
+        public int CidadeId { get; set; }
 
-        public int Especialidade { get; set; }
+        public virtual IEnumerable<Cidade> Cidades { get; set; }
+
+        public int EspecialidadeId { get; set; }
+
+        public virtual IEnumerable<Especialidade> Especialidades { get; set; }
     }
 }
