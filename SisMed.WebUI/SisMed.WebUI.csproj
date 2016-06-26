@@ -185,6 +185,7 @@
     <Compile Include="Controllers\CidadesController.cs" />
     <Compile Include="Controllers\EspecialidadesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MedicosController.cs" />
     <Compile Include="Controllers\TipoConsultaController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Global.asax.cs">
@@ -194,6 +195,7 @@
     <Compile Include="Security\BasicAuth.cs" />
     <Compile Include="Security\SessionManager.cs" />
     <Compile Include="ViewModel\EspecialidadeViewModel.cs" />
+    <Compile Include="ViewModel\MedicoViewModel.cs" />
     <Compile Include="ViewModel\TipoConsultaViewModel.cs" />
     <Compile Include="ViewModel\CidadeViewModel.cs" />
     <Compile Include="ViewModel\UsuarioViewModel.cs" />
@@ -256,6 +258,11 @@
     <Content Include="Views\Especialidades\Delete.cshtml" />
     <Content Include="Views\Especialidades\Edit.cshtml" />
     <Content Include="Views\Especialidades\Index.cshtml" />
+    <Content Include="Views\Medicos\Index.cshtml" />
+    <Content Include="Views\Medicos\Create.cshtml" />
+    <Content Include="Views\Medicos\Delete.cshtml" />
+    <Content Include="Views\Medicos\Edit.cshtml" />
+    <Content Include="Views\Medicos\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
