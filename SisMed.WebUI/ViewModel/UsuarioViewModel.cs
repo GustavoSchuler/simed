@@ -16,6 +16,7 @@ namespace SisMed.WebUI.ViewModel
 
         [MaxLength(150, ErrorMessage = "Máximo de {0} caracteres")]
         [MinLength(6, ErrorMessage = "Minimo de {0} caracteres")]
+        [DataType(DataType.Password)]
         public string PasswordHash { get; set; }
     }
 }

@@ -23,7 +23,6 @@ namespace SisMed.WebUI.Controllers
             mCidadeApp = cidadeApp;
         }
 
-        // GET: Cidade
         public ActionResult Index()
         {
             var clienteViewModel = Mapper.Map<IEnumerable<Cidade>, IEnumerable<CidadeViewModel>>(mCidadeApp.GetAll());
@@ -36,7 +35,6 @@ namespace SisMed.WebUI.Controllers
             return View();
         }
 
-        // POST: Cidade/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(CidadeViewModel cidade)
@@ -52,7 +50,6 @@ namespace SisMed.WebUI.Controllers
             return View(cidade);
         }
 
-        // GET: Cidade/Edit/5
         public ActionResult Edit(int id)
         {
             var cidade = mCidadeApp.GetById(id);
@@ -61,7 +58,6 @@ namespace SisMed.WebUI.Controllers
             return View(cidadeViewModel);
         }
 
-        // POST: Cidade/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(CidadeViewModel cidade)
@@ -75,7 +71,6 @@ namespace SisMed.WebUI.Controllers
             return RedirectToAction("Index");
         }
 
-        // GET: Cidade/Delete/5
         public ActionResult Delete(int id)
         {
             var cidade = mCidadeApp.GetById(id);
@@ -84,9 +79,9 @@ namespace SisMed.WebUI.Controllers
             return View(cidadeViewModel);
         }
 
-        // POST: Cidade/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmado(int id)
         {
             var cidade = mCidadeApp.GetById(id);
             var cidadeViewModel = Mapper.Map<Cidade, CidadeViewModel>(cidade);
