@@ -16,5 +16,10 @@ namespace SisMed.Domain.Services
         {
             mConsultaRepository = consultaRepository;
         }
+
+        public IEnumerable<Consulta> GetByUserId(int userId)
+        {
+            return mConsultaRepository.GetByUserId(userId);
+        }
     }
 }

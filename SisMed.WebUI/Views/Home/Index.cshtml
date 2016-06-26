@@ -1,8 +1,62 @@
-﻿@{
+﻿@model IEnumerable<SisMed.WebUI.ViewModel.ConsultaViewModel>
+
+@{
     ViewBag.Title = "Home";
 }
 
 <div class="jumbotron">
-    <h3>SiMed - Sistema de consultas online</h3>
+    <h3>SiMed - Sistema de gerenciamento de consultas médicas online</h3>
 </div>
 
+<div class="col-sm-12">
+    <div class="row">
+        <h4>Minhas Consultas</h4>
+        <input type="button" class="btn btn-primary pull-right" value="Nova Consulta" onclick="location.href=' @Url.Action("Create", "Consultas" ) '" />
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Data)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.HorarioInicio)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Medico.Nome)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TipoConsulta.Descricao)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Observacao)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Data)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.HorarioInicio)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Medico.Nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TipoConsulta.Descricao)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Observacao)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>

@@ -17,6 +17,8 @@ namespace ProjetoModeloDDD.MVC.AutoMapper
         {
             CreateMap<Cidade, CidadeViewModel>();
             CreateMap<TipoConsulta, TipoConsultaViewModel>();
+            CreateMap<TempoConsulta, TempoConsultaViewModel>();
+            CreateMap<Consulta, ConsultaViewModel>();
             CreateMap<Usuario, UsuarioViewModel>();
             CreateMap<Especialidade, EspecialidadeViewModel>();
             CreateMap<Medico, MedicoViewModel>();

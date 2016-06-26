@@ -1,4 +1,8 @@
-﻿using SisMed.WebUI.Security;
+﻿using AutoMapper;
+using SisMed.Application.Interface;
+using SisMed.Domain.Entities;
+using SisMed.WebUI.Security;
+using SisMed.WebUI.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +14,16 @@ namespace SisMed.WebUI.Controllers
     [BasicAuth()]
     public class HomeController : Controller
     {
+        private readonly IConsultaAppService mConsultaApp;
+
+        public HomeController(IConsultaAppService consultaApp)
+        {
+            mConsultaApp = consultaApp;
+        }
         public ActionResult Index()
         {
-            return View();
+            var consultaViewModel = Mapper.Map<IEnumerable<Consulta>, IEnumerable<ConsultaViewModel>>(mConsultaApp.GetByUserId(SessionManager.UsuarioLogado.Id));
+            return View(consultaViewModel);
         }
 
         public ActionResult About()

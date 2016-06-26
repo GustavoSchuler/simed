@@ -25,8 +25,8 @@ namespace SisMed.WebUI.Controllers
 
         public ActionResult Index()
         {
-            var clienteViewModel = Mapper.Map<IEnumerable<Cidade>, IEnumerable<CidadeViewModel>>(mCidadeApp.GetAll());
-            return View(clienteViewModel);
+            var cidadeViewModel = Mapper.Map<IEnumerable<Cidade>, IEnumerable<CidadeViewModel>>(mCidadeApp.GetAll());
+            return View(cidadeViewModel);
         }
 
         // GET: Cidade/Create

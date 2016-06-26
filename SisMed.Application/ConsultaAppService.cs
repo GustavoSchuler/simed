@@ -16,5 +16,10 @@ namespace SisMed.Application
         {
             mConsultaService = consultaService;
         }
+
+        public IEnumerable<Consulta> GetByUserId(int userId)
+        {
+            return mConsultaService.GetByUserId(userId);
+        }
     }
 }
