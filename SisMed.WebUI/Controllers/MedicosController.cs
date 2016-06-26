@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using SisMed.Application.Interface;
 using SisMed.Domain.Entities;
+using SisMed.WebUI.Security;
 using SisMed.WebUI.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ using System.Web.Mvc;
 
 namespace SisMed.WebUI.Controllers
 {
+    [BasicAuth(Roles = "ADMIN")]
     public class MedicosController : Controller
     {
         private readonly IMedicoAppService mMedicoApp;
