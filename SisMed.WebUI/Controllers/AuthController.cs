@@ -39,7 +39,6 @@ namespace SisMed.WebUI.Controllers
                 if (usuario != null)
                 {
                     SessionManager.CreateSession(usuario);
-
                     return RedirectToAction("Index", "Home");
                 }
             }

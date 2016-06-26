@@ -16,6 +16,7 @@ namespace SisMed.WebUI.Security
             }
         }
 
+
         public static void CreateSession(Usuario usuarioAutenticado)
         {
             var usuarioLogado = usuarioAutenticado;
