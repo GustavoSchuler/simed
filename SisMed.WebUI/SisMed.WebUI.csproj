@@ -279,10 +279,13 @@
     <Content Include="Views\TempoConsulta\Delete.cshtml" />
     <Content Include="Views\TempoConsulta\Edit.cshtml" />
     <Content Include="Views\TempoConsulta\Index.cshtml" />
+    <Content Include="Views\Consulta\Create.cshtml" />
+    <Content Include="Views\Consulta\Edit.cshtml" />
+    <Content Include="Views\Consulta\Delete.cshtml" />
+    <Content Include="Views\Consulta\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Consulta\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Client\fonts\glyphicons-halflings-regular.woff" />

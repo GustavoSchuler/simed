@@ -1,0 +1,63 @@
+﻿@model SisMed.WebUI.ViewModel.ConsultaViewModel
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Cancelar consulta</h2>
+
+<h3>Deseja mesmo cancelar essa consulta?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Médico
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Medico.Nome)
+        </dd>
+
+        <dt>
+            Tipo
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoConsulta.Descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Data)
+        </dt>
+
+        <dd>
+            @(Model.Data == null ? "" : ((DateTime)Model.Data).ToString("dd/MM/yyyy"))
+        </dd>
+
+        <dt>
+            Horário
+        </dt>
+
+        <dd>
+            @(Model.HorarioInicio == null ? "" : ((DateTime)Model.HorarioInicio).ToString("HH:mm"))
+        </dd>
+
+        <dt>
+            Observação
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Observacao)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Cancelar" class="btn btn-danger" /> |
+            @Html.ActionLink("Voltar", "Index", "Home")
+        </div>
+    }
+</div>

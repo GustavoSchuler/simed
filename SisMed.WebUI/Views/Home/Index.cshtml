@@ -5,30 +5,20 @@
 }
 
 <div class="jumbotron">
-    <h3>SiMed - Sistema de gerenciamento de consultas médicas online</h3>
+    <h3>SiMed - Gerenciamento de consultas médicas online</h3>
 </div>
 
-<div class="col-sm-12">
-    <div class="row">
-        <h4>Minhas Consultas</h4>
+<div class="row">
+    <div class="col-sm-12">
+        <h4>@(HttpContext.Current.User.IsInRole("MEDICO") ? "Meus atendimentos" : "Minhas Consultas")</h4>
         <input type="button" class="btn btn-primary pull-right" value="Nova Consulta" onclick="location.href=' @Url.Action("Create", "Consultas" ) '" />
         <table class="table">
             <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Data)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.HorarioInicio)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Medico.Nome)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.TipoConsulta.Descricao)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Observacao)
-                </th>
+                <th>Data</th>
+                <th>Horário Início</th>
+                <th>@(HttpContext.Current.User.IsInRole("MEDICO") ? "Paciente" : "Médico")</th>
+                <th>Tipo</th>
+                <th>Observação</th>
                 <th></th>
             </tr>
 
@@ -36,13 +26,13 @@
             {
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Data)
+                        @Convert.ToString(string.Format("{0:dd/MM/yyyy}", item.Data))
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.HorarioInicio)
+                        @Convert.ToString(string.Format("{0:HH:mm}", item.HorarioInicio))
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Medico.Nome)
+                        @(HttpContext.Current.User.IsInRole("MEDICO") ? @Html.DisplayFor(modelItem => item.Usuario.Email) : @Html.DisplayFor(modelItem => item.Medico.Nome))
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.TipoConsulta.Descricao)
@@ -51,8 +41,9 @@
                         @Html.DisplayFor(modelItem => item.Observacao)
                     </td>
                     <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                        @Html.ActionLink("Detalhes", "Details", "Consulta", new { id = item.Id }, null) |
+                        @Html.ActionLink("Alterar", "Edit", "Consulta", new { id = item.Id }, null) |
+                        @Html.ActionLink("Cancelar", "Delete", "Consulta", new { id = item.Id }, null)
                     </td>
                 </tr>
             }

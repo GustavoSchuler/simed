@@ -17,9 +17,9 @@ namespace SisMed.Application
             mConsultaService = consultaService;
         }
 
-        public IEnumerable<Consulta> GetByUserId(int userId)
+        public IEnumerable<Consulta> GetByUserId(int userId, string userRole)
         {
-            return mConsultaService.GetByUserId(userId);
+            return mConsultaService.GetByUserId(userId, userRole);
         }
     }
 }

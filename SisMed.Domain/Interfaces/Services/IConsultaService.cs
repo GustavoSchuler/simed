@@ -9,6 +9,6 @@ namespace SisMed.Domain.Interfaces.Services
 {
     public interface IConsultaService : IServiceBase<Consulta>
     {
-        IEnumerable<Consulta> GetByUserId(int userId);
+        IEnumerable<Consulta> GetByUserId(int userId, string userRole);
     }
 }

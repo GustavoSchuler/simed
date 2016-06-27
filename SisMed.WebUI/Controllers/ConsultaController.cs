@@ -17,89 +17,90 @@ namespace SisMed.WebUI.Controllers
     {
         private readonly IConsultaAppService mConsultaApp;
 
-
         public ConsultaController(IConsultaAppService consultaApp)
         {
             mConsultaApp = consultaApp;
         }
 
         // GET: Consulta
-        public ActionResult Index()
+        /*public ActionResult Index()
         {
-            var consultaViewModel = Mapper.Map<IEnumerable<Consulta>, IEnumerable<ConsultaViewModel>>(mConsultaApp.GetByUserId(SessionManager.UsuarioLogado.Id));
+            var consultaViewModel = Mapper.Map<IEnumerable<Consulta>, IEnumerable<ConsultaViewModel>>(mConsultaApp.GetByUserId(SessionManager.UsuarioLogado.Id, SessionManager.UsuarioLogado.Papel.ToString()));
             return View(consultaViewModel);
-        }
+        }*/
 
         // GET: Consulta/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            return View(mConsultaApp.GetById(id));
         }
 
         // GET: Consulta/Create
         public ActionResult Create()
         {
-            return View();
+            ConsultaViewModel consultaViewModel = new ConsultaViewModel();
+            return View(consultaViewModel);
         }
 
         // POST: Consulta/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(ConsultaViewModel consulta)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add insert logic here
+                var ConsultaDomain = Mapper.Map<ConsultaViewModel, Consulta>(consulta);
+                mConsultaApp.Add(ConsultaDomain);
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Home");
             }
-            catch
-            {
-                return View();
-            }
+
+            return View();
         }
 
         // GET: Consulta/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var consulta = mConsultaApp.GetById(id);
+            var ConsultaViewModel = Mapper.Map<Consulta, ConsultaViewModel>(consulta);
+
+            return View(ConsultaViewModel);
         }
 
         // POST: Consulta/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(ConsultaViewModel consulta)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add update logic here
+                var ConsultaDomain = Mapper.Map<ConsultaViewModel, Consulta>(consulta);
+                mConsultaApp.Update(ConsultaDomain);
+            }
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction("Index", "Home");
         }
 
         // GET: Consulta/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var consulta = mConsultaApp.GetById(id);
+            var ConsultaViewModel = Mapper.Map<Consulta, ConsultaViewModel>(consulta);
+
+            return View(ConsultaViewModel);
         }
 
         // POST: Consulta/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmado(int id)
         {
-            try
-            {
-                // TODO: Add delete logic here
+            var consulta = mConsultaApp.GetById(id);
+            var ConsultaViewModel = Mapper.Map<Consulta, ConsultaViewModel>(consulta);
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            mConsultaApp.Remove(consulta);
+
+            return RedirectToAction("Index", "Home");
         }
     }
 }

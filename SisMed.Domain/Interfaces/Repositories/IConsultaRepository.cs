@@ -9,6 +9,6 @@ namespace SisMed.Domain.Interfaces.Repositories
 {
     public interface IConsultaRepository : IRepositoryBase<Consulta>
     {
-        IEnumerable<Consulta> GetByUserId(int userId);
+        IEnumerable<Consulta> GetByUserId(int userId, string userRole);
     }
 }
