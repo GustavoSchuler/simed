@@ -32,12 +32,14 @@ namespace SisMed.WebUI.ViewModel
 
         public DateTime HorarioFinal { get; set; }
 
-        public int CidadeId { get; set; }
+        public int idCidade{ get; set; }
 
-        public virtual IEnumerable<Cidade> Cidades { get; set; }
+        public int idEspecialidade { get; set; }
 
-        public int EspecialidadeId { get; set; }
 
-        public virtual IEnumerable<Especialidade> Especialidades { get; set; }
+        public virtual Cidade Cidade { get; set; }
+
+        public virtual Especialidade Especialidade { get; set; }
+
     }
 }

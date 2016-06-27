@@ -11,10 +11,10 @@ namespace SisMed.Data.Migrations
                 "dbo.Cidade",
                 c => new
                     {
-                        CidadeID = c.Int(nullable: false, identity: true),
+                        Id = c.Int(nullable: false, identity: true),
                         NomeCidade = c.String(nullable: false, maxLength: 150, unicode: false),
                     })
-                .PrimaryKey(t => t.CidadeID);
+                .PrimaryKey(t => t.Id);
             
             CreateTable(
                 "dbo.Consulta",
@@ -54,16 +54,14 @@ namespace SisMed.Data.Migrations
                         WebSiteBlog = c.String(maxLength: 100, unicode: false),
                         HorarioInicial = c.DateTime(nullable: false),
                         HorarioFinal = c.DateTime(nullable: false),
-                        IdCidade = c.Int(nullable: false),
-                        IdEspecialidade = c.Int(nullable: false),
-                        Cidade_CidadeID = c.Int(),
-                        Especialidade_Id = c.Int(),
+                        idCidade = c.Int(nullable: false),
+                        idEspecialidade = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Cidade", t => t.Cidade_CidadeID)
-                .ForeignKey("dbo.Especialidade", t => t.Especialidade_Id)
-                .Index(t => t.Cidade_CidadeID)
-                .Index(t => t.Especialidade_Id);
+                .ForeignKey("dbo.Cidade", t => t.idCidade, cascadeDelete: true)
+                .ForeignKey("dbo.Especialidade", t => t.idEspecialidade, cascadeDelete: true)
+                .Index(t => t.idCidade)
+                .Index(t => t.idEspecialidade);
             
             CreateTable(
                 "dbo.Especialidade",
@@ -120,12 +118,12 @@ namespace SisMed.Data.Migrations
             DropForeignKey("dbo.Consulta", "Usuario_Id", "dbo.Usuario");
             DropForeignKey("dbo.Consulta", "TipoConsulta_Id", "dbo.TipoConsulta");
             DropForeignKey("dbo.Consulta", "Medico_Id", "dbo.Medico");
-            DropForeignKey("dbo.Medico", "Especialidade_Id", "dbo.Especialidade");
-            DropForeignKey("dbo.Medico", "Cidade_CidadeID", "dbo.Cidade");
+            DropForeignKey("dbo.Medico", "idEspecialidade", "dbo.Especialidade");
+            DropForeignKey("dbo.Medico", "idCidade", "dbo.Cidade");
             DropIndex("dbo.TempoConsulta", new[] { "TipoConsulta_Id" });
             DropIndex("dbo.TempoConsulta", new[] { "Medico_Id" });
-            DropIndex("dbo.Medico", new[] { "Especialidade_Id" });
-            DropIndex("dbo.Medico", new[] { "Cidade_CidadeID" });
+            DropIndex("dbo.Medico", new[] { "idEspecialidade" });
+            DropIndex("dbo.Medico", new[] { "idCidade" });
             DropIndex("dbo.Consulta", new[] { "Usuario_Id" });
             DropIndex("dbo.Consulta", new[] { "TipoConsulta_Id" });
             DropIndex("dbo.Consulta", new[] { "Medico_Id" });

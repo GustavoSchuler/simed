@@ -40,12 +40,12 @@ namespace SisMed.Data.Configurations
                 .IsRequired();
 
             HasRequired(m => m.Cidade)
-               .WithMany()
-               .HasForeignKey(m => m.IdCidade);
+                .WithMany()
+                .HasForeignKey(x => x.idCidade) ;
 
             HasRequired(m => m.Especialidade)
-               .WithMany()
-               .HasForeignKey(m => m.IdEspecialidade);
+                .WithMany()
+                .HasForeignKey(x => x.idEspecialidade);
         }
     }
 }

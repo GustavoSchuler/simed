@@ -8,7 +8,10 @@ namespace SisMed.Data.Context
 {
     public class SisMedContext : DbContext
     {
-        public SisMedContext() : base("SisMed") { }
+        public SisMedContext() : base("SisMed")
+        {
+            this.Configuration.LazyLoadingEnabled = true;
+        }
 
         public DbSet<Cidade> Cidades { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }

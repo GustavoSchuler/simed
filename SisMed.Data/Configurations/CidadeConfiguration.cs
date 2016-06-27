@@ -12,7 +12,7 @@ namespace SisMed.Data.Configurations
     {
         public CidadeConfiguration()
         {
-            HasKey(c => c.CidadeID);
+            HasKey(c => c.Id);
 
             Property(c => c.NomeCidade)
                 .IsRequired()

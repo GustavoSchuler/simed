@@ -37,14 +37,10 @@ namespace SisMed.WebUI.Controllers
 
         public ActionResult Create()
         {
-            MedicoViewModel medicoViewModel =
-                new MedicoViewModel()
-                {
-                    Especialidades = mEspecialidadeApp.GetAll(),
-                    Cidades = mCidadeApp.GetAll()
-                };
+            ViewBag.idEspecialidade = new SelectList(mEspecialidadeApp.GetAll(), "Id", "Descricao");
+            ViewBag.idCidade = new SelectList(mCidadeApp.GetAll(), "Id", "NomeCidade");
 
-            return View(medicoViewModel);
+            return View();
         }
 
         [HttpPost]
