@@ -16,10 +16,18 @@ namespace SisMed.WebUI.Controllers
     public class ConsultaController : Controller
     {
         private readonly IConsultaAppService mConsultaApp;
+        private readonly IMedicoAppService mMedicoApp;
+        private readonly ITipoConsultaAppService mTipoConsultaApp;
+        private readonly IEspecialidadeAppService mEspecialidadeApp;
+        private readonly ICidadeAppService mCidadeApp;
 
-        public ConsultaController(IConsultaAppService consultaApp)
+        public ConsultaController(IConsultaAppService consultaApp, IMedicoAppService medicoApp, ITipoConsultaAppService tipoConsultaApp, IEspecialidadeAppService especialidadeApp, ICidadeAppService cidadeApp)
         {
             mConsultaApp = consultaApp;
+            mMedicoApp = medicoApp;
+            mTipoConsultaApp = tipoConsultaApp;
+            mEspecialidadeApp = especialidadeApp;
+            mCidadeApp = cidadeApp;
         }
 
         // GET: Consulta
@@ -38,8 +46,38 @@ namespace SisMed.WebUI.Controllers
         // GET: Consulta/Create
         public ActionResult Create()
         {
-            ConsultaViewModel consultaViewModel = new ConsultaViewModel();
-            return View(consultaViewModel);
+            ViewBag.idEspecialidade = new SelectList(mEspecialidadeApp.GetAll(), "Id", "Descricao");
+            LoadCities();
+            ViewBag.idTipoConsulta = new SelectList(mTipoConsultaApp.GetAll(), "Id", "Descricao");
+            ViewBag.idMedico = new SelectList(mMedicoApp.GetAll(), "Id", "Nome");
+
+            return View();
+        }
+
+        [ValidateInput(false)]
+        [AcceptVerbs("POST")]
+        public ActionResult Test(Cidade cidade)
+        {
+
+            var idCidade = Request["idCidade"];
+            LoadCities();
+            LoadDoctors(Convert.ToInt32(idCidade));
+
+
+            return View();
+        }
+
+        public void LoadCities()
+        {
+            ViewData["idCidade"] = new SelectList(mCidadeApp.GetAll(), "Id", "NomeCidade");
+        }
+
+        public void LoadDoctors(int idCidade)
+        {
+
+            var query1 = mMedicoApp.GetAll().Where(w => w.idCidade == idCidade).Select(c => new { c.Id, c.Nome });
+
+            ViewData["idMedico"] = new SelectList(query1.AsEnumerable(), "Id", "Nome");
         }
 
         // POST: Consulta/Create
