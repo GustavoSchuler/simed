@@ -21,14 +21,10 @@ namespace SisMed.Domain.Entities
         public DateTime HorarioInicial { get; set; }
         public DateTime HorarioFinal { get; set; }
         public int idCidade { get; set; }
-        [ForeignKey("idCidade")]
         public virtual Cidade Cidade { get; set; }
         public int idEspecialidade { get; set; }
-        [ForeignKey("idEspecialidade")]
         public virtual Especialidade Especialidade { get; set; }
         public int idUsuario { get; set; }
-        [ForeignKey("idUsuario")]
-
         public virtual Usuario Usuario { get; set; }
 
     }

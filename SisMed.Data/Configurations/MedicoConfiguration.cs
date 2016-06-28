@@ -41,7 +41,7 @@ namespace SisMed.Data.Configurations
 
             HasRequired(m => m.Cidade)
                 .WithMany()
-                .HasForeignKey(x => x.idCidade) ;
+                .HasForeignKey(x => x.idCidade);
 
             HasRequired(m => m.Especialidade)
                 .WithMany()

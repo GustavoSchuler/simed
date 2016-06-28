@@ -35,6 +35,11 @@ namespace SisMed.Data.Context
 
             modelBuilder.Configurations.Add(new CidadeConfiguration());
             modelBuilder.Configurations.Add(new UsuarioConfiguration());
+            modelBuilder.Configurations.Add(new ConsultaConfiguration());
+            modelBuilder.Configurations.Add(new TempoConsultaConfiguration());
+            modelBuilder.Configurations.Add(new MedicoConfiguration());
+            modelBuilder.Configurations.Add(new TipoConsultaConfiguration());
+            modelBuilder.Configurations.Add(new EspecialidadeConfiguration());
         }
     }
 }

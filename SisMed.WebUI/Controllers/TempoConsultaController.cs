@@ -11,7 +11,7 @@ using System.Web.Mvc;
 
 namespace SisMed.WebUI.Controllers
 {
-    [BasicAuth(Roles = "ADMIN")]
+    [BasicAuth(Roles = "MEDICO")]
     public class TempoConsultaController : Controller
     {
         private readonly ITempoConsultaAppService mTempoConsultaApp;
