@@ -59,10 +59,16 @@ namespace SisMed.WebUI.Controllers
             return new SelectList(mCidadeApp.GetAll(), "Id", "NomeCidade");
         }
 
-        public SelectList LoadDoctors(int IdCidade)
+        public SelectList LoadDoctors(int IdCidade = 0, int IdEspecialidade = 0)
         {
 
-            var query1 = mMedicoApp.GetAll().Where(c => c.idCidade == IdCidade).Select(c => new { c.Id, c.Nome }).AsEnumerable().ToList();
+            var query1 = mMedicoApp.GetAll();
+            if (IdCidade != 0)
+                query1 = query1.Where(c => c.idCidade == IdCidade);
+            if (IdEspecialidade != 0)
+                query1 = query1.Where(c => c.idEspecialidade == IdEspecialidade);
+
+            query1 = query1.AsEnumerable().ToList();
 
             return new SelectList(query1, "Id", "Nome");
         }
@@ -72,12 +78,22 @@ namespace SisMed.WebUI.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(ConsultaViewModel consulta)
         {
-            ViewBag.IdEspecialidade = new SelectList(mEspecialidadeApp.GetAll(), "Id", "Descricao");
             ViewBag.IdTipoConsulta = new SelectList(mTipoConsultaApp.GetAll(), "Id", "Descricao");
 
-            var IdCidade = Request["IdCidade"];
+            var IdCidade = 0;
+            var IdEspecialidade = 0;
+
+            if (!Request["IdCidade"].Equals(""))
+            {
+                IdCidade = Convert.ToInt32(Request["IdCidade"]);
+            }
+            if (!Request["IdEspecialidade"].Equals(""))
+            {
+                IdEspecialidade = Convert.ToInt32(Request["IdEspecialidade"]);
+            }
             ViewBag.IdCidade = new SelectList(mCidadeApp.GetAll(), "Id", "NomeCidade", IdCidade);
-            ViewBag.IdMedico = LoadDoctors(Convert.ToInt32(IdCidade));
+            ViewBag.IdEspecialidade = new SelectList(mEspecialidadeApp.GetAll(), "Id", "Descricao", IdEspecialidade);
+            ViewBag.IdMedico = LoadDoctors(IdCidade, IdEspecialidade);
             
             if (ModelState.IsValid)
             {
@@ -88,6 +104,30 @@ namespace SisMed.WebUI.Controllers
             }
             
             return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult FilterData(ConsultaViewModel consulta)
+        {
+            ViewBag.IdTipoConsulta = new SelectList(mTipoConsultaApp.GetAll(), "Id", "Descricao");
+
+            var IdCidade = 0;
+            var IdEspecialidade = 0;
+
+            if (!Request["IdCidade"].Equals(""))
+            {
+                IdCidade = Convert.ToInt32(Request["IdCidade"]);
+            }
+            if (!Request["IdEspecialidade"].Equals(""))
+            {
+                IdEspecialidade = Convert.ToInt32(Request["IdEspecialidade"]);
+            }
+            ViewBag.IdCidade = new SelectList(mCidadeApp.GetAll(), "Id", "NomeCidade", IdCidade);
+            ViewBag.IdEspecialidade = new SelectList(mEspecialidadeApp.GetAll(), "Id", "Descricao", IdEspecialidade);
+            ViewBag.IdMedico = LoadDoctors(IdCidade, IdEspecialidade);
+            ModelState.Clear();
+            return View("Create");
         }
 
         // GET: Consulta/Edit/5
