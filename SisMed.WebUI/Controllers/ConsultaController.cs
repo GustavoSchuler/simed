@@ -20,14 +20,16 @@ namespace SisMed.WebUI.Controllers
         private readonly ITipoConsultaAppService mTipoConsultaApp;
         private readonly IEspecialidadeAppService mEspecialidadeApp;
         private readonly ICidadeAppService mCidadeApp;
+        private readonly ITempoConsultaAppService mTempoConsultaApp;
 
-        public ConsultaController(IConsultaAppService consultaApp, IMedicoAppService medicoApp, ITipoConsultaAppService tipoConsultaApp, IEspecialidadeAppService especialidadeApp, ICidadeAppService cidadeApp)
+        public ConsultaController(IConsultaAppService consultaApp, IMedicoAppService medicoApp, ITipoConsultaAppService tipoConsultaApp, IEspecialidadeAppService especialidadeApp, ICidadeAppService cidadeApp, ITempoConsultaAppService tempoConsultaApp)
         {
             mConsultaApp = consultaApp;
             mMedicoApp = medicoApp;
             mTipoConsultaApp = tipoConsultaApp;
             mEspecialidadeApp = especialidadeApp;
             mCidadeApp = cidadeApp;
+            mTempoConsultaApp = tempoConsultaApp;
         }
 
         // GET: Consulta
@@ -59,7 +61,7 @@ namespace SisMed.WebUI.Controllers
             return new SelectList(mCidadeApp.GetAll(), "Id", "NomeCidade");
         }
 
-        public SelectList LoadDoctors(int IdCidade = 0, int IdEspecialidade = 0)
+        public SelectList LoadDoctors(int IdCidade = 0, int IdEspecialidade = 0, int IdMedico = 0)
         {
 
             var query1 = mMedicoApp.GetAll();
@@ -70,7 +72,28 @@ namespace SisMed.WebUI.Controllers
 
             query1 = query1.AsEnumerable().ToList();
 
-            return new SelectList(query1, "Id", "Nome");
+            if (IdMedico != 0)
+            {
+                return new SelectList(query1, "Id", "Nome", IdMedico);
+            } else
+            {
+                return new SelectList(query1, "Id", "Nome");
+            }
+            
+        }
+
+        public int GetTempoConsulta(int IdMedico = 0, int IdTipoConsulta = 0)
+        {
+            int tempoConsulta = 0;
+
+            var query = mTempoConsultaApp.GetAll()
+                        .Where(t => t.IdMedico == IdMedico)
+                        .Where(t => t.IdTipoConsulta == IdTipoConsulta)
+                        .Select(t => t.TempoMedio ).AsEnumerable().ToList();
+
+            tempoConsulta = Convert.ToInt32(query[0]);
+
+            return tempoConsulta;
         }
 
         // POST: Consulta/Create
@@ -108,12 +131,10 @@ namespace SisMed.WebUI.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult FilterData(ConsultaViewModel consulta)
+        public ActionResult CreateNew(ConsultaViewModel consulta)
         {
-            ViewBag.IdTipoConsulta = new SelectList(mTipoConsultaApp.GetAll(), "Id", "Descricao");
-
-            var IdCidade = 0;
-            var IdEspecialidade = 0;
+            int IdCidade = 0;
+            int IdEspecialidade = 0;
 
             if (!Request["IdCidade"].Equals(""))
             {
@@ -123,10 +144,28 @@ namespace SisMed.WebUI.Controllers
             {
                 IdEspecialidade = Convert.ToInt32(Request["IdEspecialidade"]);
             }
+
             ViewBag.IdCidade = new SelectList(mCidadeApp.GetAll(), "Id", "NomeCidade", IdCidade);
             ViewBag.IdEspecialidade = new SelectList(mEspecialidadeApp.GetAll(), "Id", "Descricao", IdEspecialidade);
-            ViewBag.IdMedico = LoadDoctors(IdCidade, IdEspecialidade);
+
+            if (!Request["IdMedico"].Equals("") && !Request["IdTipoConsulta"].Equals(""))
+            {
+                int idMedico = Convert.ToInt32(Request["IdMedico"]);
+                int idTipoConsulta = Convert.ToInt32(Request["IdTipoConsulta"]);
+
+                ViewBag.TempoMedio = GetTempoConsulta(idMedico, idTipoConsulta);
+
+                ViewBag.IdMedico = LoadDoctors(IdCidade, IdEspecialidade, idMedico);
+                ViewBag.IdTipoConsulta = new SelectList(mTipoConsultaApp.GetAll(), "Id", "Descricao", idTipoConsulta);
+            }
+            else
+            {
+                ViewBag.IdMedico = LoadDoctors(IdCidade, IdEspecialidade);
+                ViewBag.IdTipoConsulta = new SelectList(mTipoConsultaApp.GetAll(), "Id", "Descricao");
+            }
+
             ModelState.Clear();
+
             return View("Create");
         }
 

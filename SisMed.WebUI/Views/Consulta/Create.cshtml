@@ -7,7 +7,7 @@
 <h2>Nova Consulta</h2>
 
 
-@using (Html.BeginForm("FilterData", "Consulta", FormMethod.Post, new { id = "TheForm" })) 
+@using (Html.BeginForm("CreateNew", "Consulta", FormMethod.Post, new { id = "TheForm" })) 
 {
     @Html.AntiForgeryToken()
     
@@ -48,7 +48,7 @@
         <div class="form-group">
             <label class="control-label col-md-2">Tipo</label>
             <div class="col-md-10">
-                @Html.DropDownList("idTipoConsulta", null, "Selecione", htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownList("idTipoConsulta", null, "Selecione", htmlAttributes: new { @class = "form-control", @onchange = "document.getElementById('TheForm').submit();" })
                 @Html.ValidationMessageFor(model => model.IdTipoConsulta, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -56,7 +56,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Data, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Data, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Data, new { htmlAttributes = new { @type="text", @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Data, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -64,7 +64,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.HorarioInicio, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.HorarioInicio, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.HorarioInicio, new { htmlAttributes = new { @type = "text", @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.HorarioInicio, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -90,5 +90,23 @@
 </div>
 
 @section Scripts {
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            $('#HorarioInicio').timepicker({
+                timeFormat: 'HH:mm',
+                interval: @{ @ViewBag.TempoMedio },
+                minTime: '10',
+                maxTime: '18',
+                startTime: '10:00',
+                dynamic: false,
+                dropdown: true,
+                scrollbar: true
+            });
+        });
+    </script>
     @Scripts.Render("~/bundles/jqueryval")
 }
+
+
