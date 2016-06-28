@@ -11,7 +11,7 @@
 <div class="row">
     <div class="col-sm-12">
         <h4>@(HttpContext.Current.User.IsInRole("MEDICO") ? "Meus atendimentos" : "Minhas Consultas")</h4>
-        <input type="button" class="btn btn-primary pull-right" value="Nova Consulta" onclick="location.href=' @Url.Action("Create", "Consultas" ) '" />
+        <input type="button" class="btn btn-primary pull-right" value="Nova Consulta" onclick="location.href=' @Url.Action("Create", "Consulta" ) '" />
         <table class="table">
             <tr>
                 <th>Data</th>
