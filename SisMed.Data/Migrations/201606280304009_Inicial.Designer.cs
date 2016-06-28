@@ -13,7 +13,7 @@ namespace SisMed.Data.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201606272300049_Inicial"; }
+            get { return "201606280304009_Inicial"; }
         }
         
         string IMigrationMetadata.Source

@@ -17,12 +17,14 @@ namespace SisMed.WebUI.Controllers
         private readonly IMedicoAppService mMedicoApp;
         private readonly ICidadeAppService mCidadeApp;
         private readonly IEspecialidadeAppService mEspecialidadeApp;
+        private readonly IUsuarioAppService mUsuarioApp;
 
-        public MedicosController(IMedicoAppService MedicoApp, IEspecialidadeAppService EspecialidadeApp, ICidadeAppService CidadeApp)
+        public MedicosController(IMedicoAppService MedicoApp, IEspecialidadeAppService EspecialidadeApp, ICidadeAppService CidadeApp, IUsuarioAppService UsuarioApp)
         {
             mMedicoApp = MedicoApp;
             mEspecialidadeApp = EspecialidadeApp;
             mCidadeApp = CidadeApp;
+            mUsuarioApp = UsuarioApp;
         }
 
         public ActionResult Index()
@@ -39,6 +41,7 @@ namespace SisMed.WebUI.Controllers
         {
             ViewBag.idEspecialidade = new SelectList(mEspecialidadeApp.GetAll(), "Id", "Descricao");
             ViewBag.idCidade = new SelectList(mCidadeApp.GetAll(), "Id", "NomeCidade");
+            ViewBag.idUsuario = new SelectList(mUsuarioApp.GetAll(), "Id", "Email");
 
             return View();
         }

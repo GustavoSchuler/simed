@@ -38,10 +38,15 @@ namespace SisMed.WebUI.ViewModel
 
         public int idEspecialidade { get; set; }
 
+        public int idUsuario { get; set; }
+
 
         public virtual Cidade Cidade { get; set; }
 
         public virtual Especialidade Especialidade { get; set; }
+
+        public virtual Usuario Usuario { get; set; }
+
 
     }
 }
