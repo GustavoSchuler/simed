@@ -63,6 +63,9 @@ namespace SisMed.WebUI.Controllers
             var medico = mMedicoApp.GetById(id);
             var MedicoViewModel = Mapper.Map<Medico, MedicoViewModel>(medico);
 
+            ViewBag.idEspecialidade = new SelectList(mEspecialidadeApp.GetAll(), "Id", "Descricao");
+            ViewBag.idCidade = new SelectList(mCidadeApp.GetAll(), "Id", "NomeCidade");
+
             return View(MedicoViewModel);
         }
 

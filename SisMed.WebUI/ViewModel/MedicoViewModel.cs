@@ -28,8 +28,10 @@ namespace SisMed.WebUI.ViewModel
 
         public string WebSiteBlog { get; set; }
 
+        [DataType(DataType.Time)]
         public DateTime HorarioInicial { get; set; }
 
+        [DataType(DataType.Time)]
         public DateTime HorarioFinal { get; set; }
 
         public int idCidade{ get; set; }
