@@ -46,38 +46,25 @@ namespace SisMed.WebUI.Controllers
         // GET: Consulta/Create
         public ActionResult Create()
         {
-            ViewBag.idEspecialidade = new SelectList(mEspecialidadeApp.GetAll(), "Id", "Descricao");
-            LoadCities();
-            ViewBag.idTipoConsulta = new SelectList(mTipoConsultaApp.GetAll(), "Id", "Descricao");
-            ViewBag.idMedico = new SelectList(mMedicoApp.GetAll(), "Id", "Nome");
+            ViewBag.IdEspecialidade = new SelectList(mEspecialidadeApp.GetAll(), "Id", "Descricao");
+            ViewBag.IdCidade = LoadCities();
+            ViewBag.IdTipoConsulta = new SelectList(mTipoConsultaApp.GetAll(), "Id", "Descricao");
+            ViewBag.IdMedico = new SelectList(mMedicoApp.GetAll(), "Id", "Nome");
 
             return View();
         }
 
-        [ValidateInput(false)]
-        [AcceptVerbs("POST")]
-        public ActionResult Test(Cidade cidade)
+        public SelectList LoadCities()
         {
-
-            var idCidade = Request["idCidade"];
-            LoadCities();
-            LoadDoctors(Convert.ToInt32(idCidade));
-
-
-            return View();
+            return new SelectList(mCidadeApp.GetAll(), "Id", "NomeCidade");
         }
 
-        public void LoadCities()
-        {
-            ViewData["idCidade"] = new SelectList(mCidadeApp.GetAll(), "Id", "NomeCidade");
-        }
-
-        public void LoadDoctors(int idCidade)
+        public SelectList LoadDoctors(int IdCidade)
         {
 
-            var query1 = mMedicoApp.GetAll().Where(w => w.idCidade == idCidade).Select(c => new { c.Id, c.Nome });
+            var query1 = mMedicoApp.GetAll().Where(c => c.idCidade == IdCidade).Select(c => new { c.Id, c.Nome }).AsEnumerable().ToList();
 
-            ViewData["idMedico"] = new SelectList(query1.AsEnumerable(), "Id", "Nome");
+            return new SelectList(query1, "Id", "Nome");
         }
 
         // POST: Consulta/Create
@@ -85,6 +72,13 @@ namespace SisMed.WebUI.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(ConsultaViewModel consulta)
         {
+            ViewBag.IdEspecialidade = new SelectList(mEspecialidadeApp.GetAll(), "Id", "Descricao");
+            ViewBag.IdTipoConsulta = new SelectList(mTipoConsultaApp.GetAll(), "Id", "Descricao");
+
+            var IdCidade = Request["IdCidade"];
+            ViewBag.IdCidade = new SelectList(mCidadeApp.GetAll(), "Id", "NomeCidade", IdCidade);
+            ViewBag.IdMedico = LoadDoctors(Convert.ToInt32(IdCidade));
+            
             if (ModelState.IsValid)
             {
                 var ConsultaDomain = Mapper.Map<ConsultaViewModel, Consulta>(consulta);
@@ -92,7 +86,7 @@ namespace SisMed.WebUI.Controllers
 
                 return RedirectToAction("Index", "Home");
             }
-
+            
             return View();
         }
 
