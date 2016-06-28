@@ -18,21 +18,21 @@
         <div class="form-group">
             <label class="control-label col-md-2">Cidade</label>
             <div class="col-md-10">
-                @Html.DropDownList("idCidade", (SelectList)ViewData["idCidade"], "Selecione", htmlAttributes: new { @class = "form-control", @onchange = "document.getElementById('TheForm').submit();" })
+                @Html.DropDownList("IdCidade", null, "Selecione", htmlAttributes: new { @class = "form-control", @onchange = "document.getElementById('TheForm').submit();" })
             </div>
         </div>
         
         <div class="form-group">
             <label class="control-label col-md-2">Especialidade</label>
             <div class="col-md-10">
-                @Html.DropDownList("idEspecialidade", null, "Selecione", htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownList("IdEspecialidade", null, "Selecione", htmlAttributes: new { @class = "form-control" })
             </div>
         </div>
 
         <div class="form-group">
             <label class="control-label col-md-2">Médico</label>
             <div class="col-md-10">
-                @Html.DropDownList("idMedico", (SelectList)ViewData["idMedico"], "Selecione", htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownList("IdMedico", null, "Selecione", htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.IdMedico, "", new { @class = "text-danger" })
             </div>
         </div>
