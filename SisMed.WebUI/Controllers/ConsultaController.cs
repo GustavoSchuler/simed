@@ -77,8 +77,11 @@ namespace SisMed.WebUI.Controllers
 
             if (IdMedico != 0)
             {
+                ViewBag.HorarioInicial = query1.Where(m => m.Id == IdMedico).Select(m => m.HorarioInicial).AsEnumerable().ToList()[0].TimeOfDay.Hours.ToString();
+                ViewBag.HorarioFinal = query1.Where(m => m.Id == IdMedico).Select(m => m.HorarioFinal).AsEnumerable().ToList()[0].TimeOfDay.Hours.ToString();
                 return new SelectList(query1, "Id", "Nome", IdMedico);
-            } else
+            }
+            else
             {
                 return new SelectList(query1, "Id", "Nome");
             }
@@ -100,7 +103,7 @@ namespace SisMed.WebUI.Controllers
         }
 
         // POST: Consulta/Create
-        [HttpPost]
+       /* [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(ConsultaViewModel consulta)
         {
@@ -130,11 +133,11 @@ namespace SisMed.WebUI.Controllers
             }
             
             return View();
-        }
+        }*/
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult CreateNew(ConsultaViewModel consulta)
+        public ActionResult Create(ConsultaViewModel consulta)
         {
             int IdCidade = 0;
             int IdEspecialidade = 0;
@@ -167,7 +170,17 @@ namespace SisMed.WebUI.Controllers
                 ViewBag.IdTipoConsulta = new SelectList(mTipoConsultaApp.GetAll(), "Id", "Descricao");
             }
 
+            if (ModelState.IsValid)
+            {
+                var ConsultaDomain = Mapper.Map<ConsultaViewModel, Consulta>(consulta);
+                mConsultaApp.Add(ConsultaDomain);
+
+                return RedirectToAction("Index", "Home");
+            }
+
             ModelState.Clear();
+
+            ViewBag.IdUsuario = SessionManager.UsuarioLogado.Id;
 
             return View("Create");
         }

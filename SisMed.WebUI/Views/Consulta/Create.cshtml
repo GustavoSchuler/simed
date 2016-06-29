@@ -7,7 +7,7 @@
 <h2>Nova Consulta</h2>
 
 
-@using (Html.BeginForm("CreateNew", "Consulta", FormMethod.Post, new { id = "TheForm" })) 
+@using (Html.BeginForm("Create", "Consulta", FormMethod.Post, new { id = "TheForm" })) 
 {
     @Html.AntiForgeryToken()
     
@@ -40,7 +40,7 @@
         <div class="form-group hidden">
             @Html.LabelFor(model => model.IdUsuario, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.IdUsuario, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextBoxFor(model => model.IdUsuario, new { Value = ViewBag.IdUsuario })
                 @Html.ValidationMessageFor(model => model.IdUsuario, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -56,8 +56,10 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Data, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
+                @{ Html.EnableClientValidation(false); }
                 @Html.EditorFor(model => model.Data, new { htmlAttributes = new { @type="text", @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Data, "", new { @class = "text-danger" })
+                @{ Html.EnableClientValidation(true); }
             </div>
         </div>
 
@@ -72,7 +74,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Observacao, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Observacao, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Observacao, new { htmlAttributes = new { @type= "textarea", @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Observacao, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -97,9 +99,8 @@
             $('#HorarioInicio').timepicker({
                 timeFormat: 'HH:mm',
                 interval: @{ @ViewBag.TempoMedio },
-                minTime: '10',
-                maxTime: '18',
-                startTime: '10:00',
+                minTime: '@{ @ViewBag.HorarioInicial }',
+                maxTime: '@{ @ViewBag.HorarioFinal }',
                 dynamic: false,
                 dropdown: true,
                 scrollbar: true
