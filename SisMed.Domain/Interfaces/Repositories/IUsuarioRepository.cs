@@ -12,5 +12,7 @@ namespace SisMed.Domain.Interfaces.Repositories
         Usuario ObterPorId(string id);
         IEnumerable<Usuario> ObterTodos();
         Usuario ObterAutenticacao(Usuario usuario);
+
+        void AlterarRoleUsuario(int id, Papel role);
     }
 }

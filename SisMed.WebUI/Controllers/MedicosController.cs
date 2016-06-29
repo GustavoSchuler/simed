@@ -18,13 +18,16 @@ namespace SisMed.WebUI.Controllers
         private readonly ICidadeAppService mCidadeApp;
         private readonly IEspecialidadeAppService mEspecialidadeApp;
         private readonly IUsuarioAppService mUsuarioApp;
+        private readonly ITipoConsultaAppService mTipoConsultaApp;
 
-        public MedicosController(IMedicoAppService MedicoApp, IEspecialidadeAppService EspecialidadeApp, ICidadeAppService CidadeApp, IUsuarioAppService UsuarioApp)
+
+        public MedicosController(IMedicoAppService MedicoApp, IEspecialidadeAppService EspecialidadeApp, ICidadeAppService CidadeApp, IUsuarioAppService UsuarioApp, ITipoConsultaAppService TipoConsultaApp)
         {
             mMedicoApp = MedicoApp;
             mEspecialidadeApp = EspecialidadeApp;
             mCidadeApp = CidadeApp;
             mUsuarioApp = UsuarioApp;
+            mTipoConsultaApp = TipoConsultaApp;
         }
 
         public ActionResult Index()
@@ -53,7 +56,12 @@ namespace SisMed.WebUI.Controllers
             if (ModelState.IsValid)
             {
                 var MedicoDomain = Mapper.Map<MedicoViewModel, Medico>(medico);
+
                 mMedicoApp.Add(MedicoDomain);
+
+                mUsuarioApp.AlterarRoleUsuario(MedicoDomain.idUsuario, Papel.MEDICO);
+
+                mTipoConsultaApp.AdicionarMedicoTodosTipos(MedicoDomain.Id);
 
                 return RedirectToAction("Index");
             }
@@ -68,6 +76,7 @@ namespace SisMed.WebUI.Controllers
 
             ViewBag.idEspecialidade = new SelectList(mEspecialidadeApp.GetAll(), "Id", "Descricao");
             ViewBag.idCidade = new SelectList(mCidadeApp.GetAll(), "Id", "NomeCidade");
+            ViewBag.idUsuario = new SelectList(mUsuarioApp.GetAll(), "Id", "Email");
 
             return View(MedicoViewModel);
         }

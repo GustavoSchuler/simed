@@ -38,5 +38,11 @@ namespace SisMed.Data.Repositories
         {
             return mDb.Usuarios.FirstOrDefault(u => u.Email == usuario.Email && u.PasswordHash == usuario.PasswordHash);
         }
+
+        public void AlterarRoleUsuario(int id, Papel role)
+        {
+            mDb.Usuarios.FirstOrDefault(u => u.Id == id).Papel = role;
+            mDb.SaveChanges();
+        }
     }
 }

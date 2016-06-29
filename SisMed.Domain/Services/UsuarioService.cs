@@ -18,6 +18,11 @@ namespace SisMed.Domain.Services
             mUsuarioRepository = usuarioRepository;
         }
 
+        public void AlterarRoleUsuario(int id, Papel role)
+        {
+            mUsuarioRepository.AlterarRoleUsuario(id, role);
+        }
+
         public Usuario ObterAutenticacao(Usuario usuario)
         {
            return mUsuarioRepository.ObterAutenticacao(usuario);

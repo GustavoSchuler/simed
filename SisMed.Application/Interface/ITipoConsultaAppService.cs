@@ -9,5 +9,6 @@ namespace SisMed.Application.Interface
 {
     public interface ITipoConsultaAppService : IAppServiceBase<TipoConsulta>
     {
+        void AdicionarMedicoTodosTipos(int idMedico);
     }
 }

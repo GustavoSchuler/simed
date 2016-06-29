@@ -15,10 +15,12 @@ namespace SisMed.WebUI.Controllers
     public class TempoConsultaController : Controller
     {
         private readonly ITempoConsultaAppService mTempoConsultaApp;
+        private readonly ITipoConsultaAppService mTipoConsultaApp;
 
-        public TempoConsultaController(ITempoConsultaAppService tempoConsultaApp)
+        public TempoConsultaController(ITempoConsultaAppService tempoConsultaApp, ITipoConsultaAppService tipoConsultaApp)
         {
             mTempoConsultaApp = tempoConsultaApp;
+            mTipoConsultaApp = tipoConsultaApp;
         }
 
         // GET: TempoConsulta

@@ -18,6 +18,11 @@ namespace SisMed.Application
             mUsuarioService = usuario;
         }
 
+        public void AlterarRoleUsuario(int id, Papel role)
+        {
+            mUsuarioService.AlterarRoleUsuario(id, role);
+        }
+
         public Usuario ObterAutenticacao(Usuario usuario)
         {
             return mUsuarioService.ObterAutenticacao(usuario);

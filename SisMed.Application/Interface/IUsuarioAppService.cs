@@ -10,5 +10,7 @@ namespace SisMed.Application.Interface
     public interface IUsuarioAppService : IAppServiceBase<Usuario>
     {
         Usuario ObterAutenticacao(Usuario usuario);
+
+        void AlterarRoleUsuario(int id, Papel role);
     }
 }

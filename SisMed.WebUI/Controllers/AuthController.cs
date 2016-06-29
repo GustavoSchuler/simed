@@ -48,7 +48,6 @@ namespace SisMed.WebUI.Controllers
             return View("Index", usuarioViewModel);
         }
 
-        [AllowAnonymous]
         public ActionResult Register()
         {
             if(SessionManager.UsuarioLogado != null)
@@ -60,7 +59,6 @@ namespace SisMed.WebUI.Controllers
         }
 
         [HttpPost]
-        [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public ActionResult Register(UsuarioViewModel usuarioViewModel)
         {

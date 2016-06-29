@@ -9,5 +9,6 @@ namespace SisMed.Domain.Interfaces.Services
 {
     public interface ITipoConsultaService : IServiceBase<TipoConsulta>
     {
+        void AdicionarMedicoTodosTipos(int idMedico);
     }
 }

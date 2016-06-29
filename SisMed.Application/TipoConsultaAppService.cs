@@ -16,5 +16,10 @@ namespace SisMed.Application
         {
             mTipoConsultaService = tipoConsulta;
         }
+
+        public void AdicionarMedicoTodosTipos(int idMedico)
+        {
+            mTipoConsultaService.AdicionarMedicoTodosTipos(idMedico);
+        }
     }
 }

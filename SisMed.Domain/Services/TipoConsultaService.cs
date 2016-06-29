@@ -16,5 +16,10 @@ namespace SisMed.Domain.Services
         {
             mTipoConsultaRepository = tipoConsultaRepository;
         }
+
+        public void AdicionarMedicoTodosTipos(int idMedico)
+        {
+            mTipoConsultaRepository.AdicionarMedicoTodosTipos(idMedico);
+        }
     }
 }

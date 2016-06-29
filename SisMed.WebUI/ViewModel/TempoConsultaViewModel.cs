@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SisMed.Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -17,5 +18,9 @@ namespace SisMed.WebUI.ViewModel
 
         [Required(ErrorMessage = "Preencha o campo tempo médio")]
         public double TempoMedio { get; set; }
+
+        public virtual TipoConsulta TipoConsulta { get; set; }
+
+        public virtual Medico Medico { get; set; }
     }
 }

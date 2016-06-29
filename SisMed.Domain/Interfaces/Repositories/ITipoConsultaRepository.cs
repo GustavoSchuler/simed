@@ -9,5 +9,6 @@ namespace SisMed.Domain.Interfaces.Repositories
 {
     public interface ITipoConsultaRepository : IRepositoryBase<TipoConsulta>
     {
+        void AdicionarMedicoTodosTipos(int idMedico);
     }
 }
