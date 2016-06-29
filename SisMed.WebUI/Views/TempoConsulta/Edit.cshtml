@@ -16,19 +16,22 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.IdMedico)
+        @Html.HiddenFor(model => model.IdTipoConsulta)
+        @Html.HiddenFor(model => model.TipoConsulta.Id)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.IdMedico, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Medico, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.IdMedico, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.IdMedico, "", new { @class = "text-danger" })
+                @Html.DisplayFor(model => model.Medico.Nome, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Medico, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.IdTipoConsulta, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model., new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.TipoConsulta.Descricao, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.IdTipoConsulta, "", new { @class = "text-danger" })
             </div>
         </div>

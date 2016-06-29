@@ -4,15 +4,12 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Tempo de consulta</h2>
 
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.IdMedico)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IdTipoConsulta)
+            @Html.DisplayNameFor(model => model.TipoConsulta.Descricao)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.TempoMedio)
@@ -23,10 +20,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.IdMedico)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IdTipoConsulta)
+            @Html.DisplayFor(modelItem => item.TipoConsulta.Descricao)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.TempoMedio)

@@ -42,7 +42,10 @@ namespace SisMed.WebUI.Controllers
         // GET: Consulta/Details/5
         public ActionResult Details(int id)
         {
-            return View(mConsultaApp.GetById(id));
+            Consulta c = mConsultaApp.GetById(id);
+
+            var ConsultaViewModel = Mapper.Map<Consulta, ConsultaViewModel>(c);
+            return View(ConsultaViewModel);
         }
 
         // GET: Consulta/Create
