@@ -77,7 +77,7 @@ namespace SisMed.WebUI.Controllers
 
             if (IdMedico != 0)
             {
-                ViewBag.MinDate = 0;
+                ViewBag.MinDate = 1;
 
                 var horarioInicial = query1.Where(m => m.Id == IdMedico).Select(m => m.HorarioInicial).AsEnumerable().ToList()[0].TimeOfDay.Hours;
                 ViewBag.HorarioInicialHoje = (horarioInicial > DateTime.Now.Hour) ? horarioInicial : DateTime.Now.Hour;
@@ -154,6 +154,9 @@ namespace SisMed.WebUI.Controllers
         {
             int IdCidade = 0;
             int IdEspecialidade = 0;
+            int idMedico = 0;
+            int idTipoConsulta = 0;
+
 
             if (!Request["IdCidade"].Equals(""))
             {
@@ -169,8 +172,8 @@ namespace SisMed.WebUI.Controllers
 
             if (!Request["IdMedico"].Equals("") && !Request["IdTipoConsulta"].Equals(""))
             {
-                int idMedico = Convert.ToInt32(Request["IdMedico"]);
-                int idTipoConsulta = Convert.ToInt32(Request["IdTipoConsulta"]);
+                idMedico = Convert.ToInt32(Request["IdMedico"]);
+                idTipoConsulta = Convert.ToInt32(Request["IdTipoConsulta"]);
 
                 ViewBag.TempoMedio = GetTempoConsulta(idMedico, idTipoConsulta);
 
@@ -178,14 +181,14 @@ namespace SisMed.WebUI.Controllers
 
                 if (idTipoConsulta == 2)
                 {
-                    var query = mConsultaApp.GetAll()
+                    var query2 = mConsultaApp.GetAll()
                         .Where(c => c.Data < DateTime.Now)
                         .Where(c => c.IdUsuario == SessionManager.UsuarioLogado.Id)
                         .Where(c => c.IdTipoConsulta != 2)
                         .Where(c => c.IdMedico == idMedico)
                         .Select(c => c.Id).AsEnumerable().ToList();
 
-                    if (query.ToList().Count == 0)
+                    if (query2.ToList().Count == 0)
                     {
                         idTipoConsulta = 0;
                     } 
@@ -200,7 +203,36 @@ namespace SisMed.WebUI.Controllers
                 ViewBag.IdTipoConsulta = new SelectList(mTipoConsultaApp.GetAll(), "Id", "Descricao");
             }
 
-            if (ModelState.IsValid)
+            bool error = false;
+
+            if (!Request["HorarioInicio"].Equals(""))
+            {
+
+                DateTime horarioInicio = Convert.ToDateTime(Request["HorarioInicio"]);
+
+                var query = mConsultaApp.GetAll()
+                    .Where(c => c.IdMedico == idMedico).ToList();
+
+                var consultas = query.ToList();
+
+                foreach (var c in consultas)
+                {
+                    double tempoConsulta = mTempoConsultaApp.GetAll()
+                        .Where(t => t.IdMedico == idMedico)
+                        .Where(t => t.IdTipoConsulta == idTipoConsulta)
+                        .Select(t => t.TempoMedio).FirstOrDefault();
+
+                    if (horarioInicio >= c.HorarioInicio && horarioInicio < c.HorarioInicio.AddMinutes(tempoConsulta))
+                    {
+                        ModelState.AddModelError("HorarioInicio", "Horário não disponível");
+                        error = true;
+                        ViewBag.IdUsuario = SessionManager.UsuarioLogado.Id;
+                        return View("Create");
+                    }
+                }
+            }
+
+            if (ModelState.IsValid && error == false)
             {
                 var ConsultaDomain = Mapper.Map<ConsultaViewModel, Consulta>(consulta);
                 mConsultaApp.Add(ConsultaDomain);

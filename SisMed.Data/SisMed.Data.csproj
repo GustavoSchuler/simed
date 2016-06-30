@@ -42,6 +42,10 @@
     <Compile Include="Migrations\201606282351020_Inicial.Designer.cs">
       <DependentUpon>201606282351020_Inicial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201606300216059_consulta.cs" />
+    <Compile Include="Migrations\201606300216059_consulta.Designer.cs">
+      <DependentUpon>201606300216059_consulta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\CidadeRepository.cs" />
@@ -78,6 +82,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201606282351020_Inicial.resx">
       <DependentUpon>201606282351020_Inicial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606300216059_consulta.resx">
+      <DependentUpon>201606300216059_consulta.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

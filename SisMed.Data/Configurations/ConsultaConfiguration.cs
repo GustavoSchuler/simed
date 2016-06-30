@@ -33,7 +33,6 @@ namespace SisMed.Data.Configurations
                 .IsRequired();
 
             Property(c => c.Observacao)
-                .IsRequired()
                 .HasMaxLength(250);
 
         }
