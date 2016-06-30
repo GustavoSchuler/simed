@@ -77,8 +77,21 @@ namespace SisMed.WebUI.Controllers
 
             if (IdMedico != 0)
             {
-                ViewBag.HorarioInicial = query1.Where(m => m.Id == IdMedico).Select(m => m.HorarioInicial).AsEnumerable().ToList()[0].TimeOfDay.Hours.ToString();
-                ViewBag.HorarioFinal = query1.Where(m => m.Id == IdMedico).Select(m => m.HorarioFinal).AsEnumerable().ToList()[0].TimeOfDay.Hours.ToString();
+                ViewBag.MinDate = 0;
+
+                var horarioInicial = query1.Where(m => m.Id == IdMedico).Select(m => m.HorarioInicial).AsEnumerable().ToList()[0].TimeOfDay.Hours;
+                ViewBag.HorarioInicialHoje = (horarioInicial > DateTime.Now.Hour) ? horarioInicial : DateTime.Now.Hour;
+                ViewBag.HorarioInicial = horarioInicial;
+
+                var horarioFinal = query1.Where(m => m.Id == IdMedico).Select(m => m.HorarioFinal).AsEnumerable().ToList()[0].TimeOfDay.Hours;
+                ViewBag.HorarioFinal = horarioFinal;
+                ViewBag.HorarioFinalHoje = (horarioFinal < ViewBag.HorarioInicialHoje) ? 0 : horarioFinal;
+
+                if (ViewBag.HorarioFinalHoje == 0)
+                {
+                    ViewBag.MinDate = 1;
+                }
+
                 return new SelectList(query1, "Id", "Nome", IdMedico);
             }
             else
@@ -162,6 +175,23 @@ namespace SisMed.WebUI.Controllers
                 ViewBag.TempoMedio = GetTempoConsulta(idMedico, idTipoConsulta);
 
                 ViewBag.IdMedico = LoadDoctors(IdCidade, IdEspecialidade, idMedico);
+
+                if (idTipoConsulta == 2)
+                {
+                    var query = mConsultaApp.GetAll()
+                        .Where(c => c.Data < DateTime.Now)
+                        .Where(c => c.IdUsuario == SessionManager.UsuarioLogado.Id)
+                        .Where(c => c.IdTipoConsulta != 2)
+                        .Where(c => c.IdMedico == idMedico)
+                        .Select(c => c.Id).AsEnumerable().ToList();
+
+                    if (query.ToList().Count == 0)
+                    {
+                        idTipoConsulta = 0;
+                    } 
+
+                }
+
                 ViewBag.IdTipoConsulta = new SelectList(mTipoConsultaApp.GetAll(), "Id", "Descricao", idTipoConsulta);
             }
             else

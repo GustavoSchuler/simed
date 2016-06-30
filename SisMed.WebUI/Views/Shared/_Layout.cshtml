@@ -86,7 +86,7 @@
 
         $(document).ready(function () {
             $("#Data").datepicker({
-                minDate: 0,
+                minDate: @{ @ViewBag.MinDate },
                 showAnim: "slideDown",
                 dateFormat: "dd/mm/yy",
                 dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'],

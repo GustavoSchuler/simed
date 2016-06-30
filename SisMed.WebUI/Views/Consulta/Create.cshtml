@@ -57,7 +57,7 @@
             @Html.LabelFor(model => model.Data, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @{ Html.EnableClientValidation(false); }
-                @Html.EditorFor(model => model.Data, new { htmlAttributes = new { @type="text", @class = "form-control" } })
+                @Html.EditorFor(model => model.Data, new { htmlAttributes = new { @type = "text", @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Data, "", new { @class = "text-danger" })
                 @{ Html.EnableClientValidation(true); }
             </div>
@@ -105,6 +105,8 @@
                 dropdown: true,
                 scrollbar: true
             });
+
+            $("#Data").keypress(function(event) {event.preventDefault();});
         });
     </script>
     @Scripts.Render("~/bundles/jqueryval")
