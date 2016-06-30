@@ -32,14 +32,6 @@ namespace SisMed.WebUI.Controllers
             mTempoConsultaApp = tempoConsultaApp;
         }
 
-        // GET: Consulta
-        /*public ActionResult Index()
-        {
-            var consultaViewModel = Mapper.Map<IEnumerable<Consulta>, IEnumerable<ConsultaViewModel>>(mConsultaApp.GetByUserId(SessionManager.UsuarioLogado.Id, SessionManager.UsuarioLogado.Papel.ToString()));
-            return View(consultaViewModel);
-        }*/
-
-        // GET: Consulta/Details/5
         public ActionResult Details(int id)
         {
             Consulta c = mConsultaApp.GetById(id);
@@ -115,39 +107,6 @@ namespace SisMed.WebUI.Controllers
             return tempoConsulta;
         }
 
-        // POST: Consulta/Create
-       /* [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(ConsultaViewModel consulta)
-        {
-            ViewBag.IdTipoConsulta = new SelectList(mTipoConsultaApp.GetAll(), "Id", "Descricao");
-
-            var IdCidade = 0;
-            var IdEspecialidade = 0;
-
-            if (!Request["IdCidade"].Equals(""))
-            {
-                IdCidade = Convert.ToInt32(Request["IdCidade"]);
-            }
-            if (!Request["IdEspecialidade"].Equals(""))
-            {
-                IdEspecialidade = Convert.ToInt32(Request["IdEspecialidade"]);
-            }
-            ViewBag.IdCidade = new SelectList(mCidadeApp.GetAll(), "Id", "NomeCidade", IdCidade);
-            ViewBag.IdEspecialidade = new SelectList(mEspecialidadeApp.GetAll(), "Id", "Descricao", IdEspecialidade);
-            ViewBag.IdMedico = LoadDoctors(IdCidade, IdEspecialidade);
-            
-            if (ModelState.IsValid)
-            {
-                var ConsultaDomain = Mapper.Map<ConsultaViewModel, Consulta>(consulta);
-                mConsultaApp.Add(ConsultaDomain);
-
-                return RedirectToAction("Index", "Home");
-            }
-            
-            return View();
-        }*/
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(ConsultaViewModel consulta)
@@ -209,9 +168,11 @@ namespace SisMed.WebUI.Controllers
             {
 
                 DateTime horarioInicio = Convert.ToDateTime(Request["HorarioInicio"]);
+                DateTime dataConsulta = Convert.ToDateTime(Request["Data"]);
 
                 var query = mConsultaApp.GetAll()
-                    .Where(c => c.IdMedico == idMedico).ToList();
+                    .Where(c => c.IdMedico == idMedico)
+                    .Where(c => c.Data.Date == dataConsulta.Date).ToList();
 
                 var consultas = query.ToList();
 

@@ -26,7 +26,7 @@ namespace SisMed.WebUI.Controllers
         // GET: TempoConsulta
         public ActionResult Index()
         {
-            var clienteViewModel = Mapper.Map<IEnumerable<TempoConsulta>, IEnumerable<TempoConsultaViewModel>>(mTempoConsultaApp.GetAll().Where(c => c.Medico.Email.Equals(HttpContext.User.Identity.Name)));
+            var clienteViewModel = Mapper.Map<IEnumerable<TempoConsulta>, IEnumerable<TempoConsultaViewModel>>(mTempoConsultaApp.GetAll().Where(c => c.Medico.Usuario.Email.Equals(HttpContext.User.Identity.Name)));
             return View(clienteViewModel);
         }
 

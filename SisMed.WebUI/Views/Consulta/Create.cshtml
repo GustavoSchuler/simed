@@ -57,7 +57,7 @@
             @Html.LabelFor(model => model.Data, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @{ Html.EnableClientValidation(false); }
-                @Html.EditorFor(model => model.Data, new { htmlAttributes = new { @type = "text", @class = "form-control" } })
+                @Html.EditorFor(model => model.Data, new { htmlAttributes = new { @type = "text", @class = "form-control", @onchange = "liberaCampoHora()" } })
                 @Html.ValidationMessageFor(model => model.Data, "", new { @class = "text-danger" })
                 @{ Html.EnableClientValidation(true); }
             </div>
@@ -66,7 +66,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.HorarioInicio, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.HorarioInicio, new { htmlAttributes = new { @type = "text", @class = "form-control" } })
+                @Html.EditorFor(model => model.HorarioInicio, new { htmlAttributes = new { @type = "text", @class = "form-control", @readonly = "readonly" } })
                 @Html.ValidationMessageFor(model => model.HorarioInicio, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -108,7 +108,17 @@
             });
 
             $("#Data").keypress(function(event) {event.preventDefault();});
+            
         });
+
+        function liberaCampoHora() {
+            if ($("#Data").val == ""){
+                $("#HorarioInicio").val = "";
+                $("#HorarioInicio").attr("readonly","readonly");
+            } else {
+                $("#HorarioInicio").removeAttr("readonly");
+            }
+        }
     </script>
     @Scripts.Render("~/bundles/jqueryval")
 }

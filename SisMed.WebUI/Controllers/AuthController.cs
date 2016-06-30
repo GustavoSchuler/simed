@@ -43,7 +43,7 @@ namespace SisMed.WebUI.Controllers
                 }
             }
 
-            ModelState.AddModelError("INVALID_LOGIN", "Usuário ou senha inválidos.");
+            ModelState.AddModelError("PasswordHash", "Usuário ou senha inválidos.");
 
             return View("Index", usuarioViewModel);
         }
