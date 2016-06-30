@@ -315,7 +315,6 @@
     <Content Include="Views\TempoConsulta\Edit.cshtml" />
     <Content Include="Views\TempoConsulta\Index.cshtml" />
     <Content Include="Views\Consulta\Create.cshtml" />
-    <Content Include="Views\Consulta\Edit.cshtml" />
     <Content Include="Views\Consulta\Delete.cshtml" />
     <Content Include="Views\Consulta\Details.cshtml" />
   </ItemGroup>
