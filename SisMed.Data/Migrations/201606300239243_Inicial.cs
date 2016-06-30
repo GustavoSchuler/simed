@@ -26,7 +26,7 @@ namespace SisMed.Data.Migrations
                         IdTipoConsulta = c.Int(nullable: false),
                         Data = c.DateTime(nullable: false),
                         HorarioInicio = c.DateTime(nullable: false),
-                        Observacao = c.String(nullable: false, maxLength: 250, unicode: false),
+                        Observacao = c.String(maxLength: 250, unicode: false),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Medico", t => t.IdMedico)

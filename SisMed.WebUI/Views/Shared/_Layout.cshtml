@@ -49,7 +49,7 @@
                             </li>
                             if (HttpContext.Current.User.IsInRole("MEDICO"))
                             {
-                            <li>@Html.ActionLink("Meus horários", "", "")</li>
+                            <li>@Html.ActionLink("Meus horários", "Index", "Horarios")</li>
                             }
                         }
                     }                    
