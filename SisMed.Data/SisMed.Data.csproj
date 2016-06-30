@@ -38,9 +38,9 @@
     <Compile Include="Configurations\TipoConsultaConfiguration.cs" />
     <Compile Include="Configurations\UsuarioConfiguration.cs" />
     <Compile Include="Context\SisMedContext.cs" />
-    <Compile Include="Migrations\201606282351020_Inicial.cs" />
-    <Compile Include="Migrations\201606282351020_Inicial.Designer.cs">
-      <DependentUpon>201606282351020_Inicial.cs</DependentUpon>
+    <Compile Include="Migrations\201606300059052_Inicial.cs" />
+    <Compile Include="Migrations\201606300059052_Inicial.Designer.cs">
+      <DependentUpon>201606300059052_Inicial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201606300216059_consulta.cs" />
     <Compile Include="Migrations\201606300216059_consulta.Designer.cs">
@@ -80,8 +80,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201606282351020_Inicial.resx">
-      <DependentUpon>201606282351020_Inicial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201606300059052_Inicial.resx">
+      <DependentUpon>201606300059052_Inicial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201606300216059_consulta.resx">
       <DependentUpon>201606300216059_consulta.cs</DependentUpon>

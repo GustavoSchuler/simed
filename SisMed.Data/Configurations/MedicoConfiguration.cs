@@ -46,6 +46,11 @@ namespace SisMed.Data.Configurations
             HasRequired(m => m.Especialidade)
                 .WithMany()
                 .HasForeignKey(x => x.idEspecialidade);
+
+            HasRequired(m => m.Usuario)
+                .WithMany()
+                .HasForeignKey(x => x.idUsuario)
+                .WillCascadeOnDelete(false);
         }
     }
 }

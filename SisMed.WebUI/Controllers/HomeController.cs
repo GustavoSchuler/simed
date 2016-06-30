@@ -15,14 +15,23 @@ namespace SisMed.WebUI.Controllers
     public class HomeController : Controller
     {
         private readonly IConsultaAppService mConsultaApp;
+        private readonly IMedicoAppService mMedicoApp;
 
-        public HomeController(IConsultaAppService consultaApp)
+        public HomeController(IConsultaAppService consultaApp, IMedicoAppService medicoApp)
         {
             mConsultaApp = consultaApp;
+            mMedicoApp = medicoApp;
         }
         public ActionResult Index()
         {
-            var consultaViewModel = Mapper.Map<IEnumerable<Consulta>, IEnumerable<ConsultaViewModel>>(mConsultaApp.GetByUserId(SessionManager.UsuarioLogado.Id, SessionManager.UsuarioLogado.Papel.ToString()));
+            int id = SessionManager.UsuarioLogado.Id;
+
+            if (SessionManager.UsuarioLogado.Papel.ToString().Equals("MEDICO"))
+            {
+                id = mMedicoApp.GetAll().FirstOrDefault(m => m.idUsuario == SessionManager.UsuarioLogado.Id).Id;
+            }
+
+            var consultaViewModel = Mapper.Map<IEnumerable<Consulta>, IEnumerable<ConsultaViewModel>>(mConsultaApp.GetByUserId(id, SessionManager.UsuarioLogado.Papel.ToString()));
             return View(consultaViewModel);
         }
 

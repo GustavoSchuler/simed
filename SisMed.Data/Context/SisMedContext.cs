@@ -26,6 +26,7 @@ namespace SisMed.Data.Context
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
             modelBuilder.Conventions.Remove<OneToOneConstraintIntroductionConvention>();
             modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
 
             modelBuilder.Properties<string>()
                 .Configure(p => p.HasColumnType("varchar"));

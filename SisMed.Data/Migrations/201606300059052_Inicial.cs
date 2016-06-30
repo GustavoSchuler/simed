@@ -29,9 +29,9 @@ namespace SisMed.Data.Migrations
                         Observacao = c.String(nullable: false, maxLength: 250, unicode: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Medico", t => t.IdMedico, cascadeDelete: true)
-                .ForeignKey("dbo.TipoConsulta", t => t.IdTipoConsulta, cascadeDelete: true)
-                .ForeignKey("dbo.Usuario", t => t.IdUsuario, cascadeDelete: true)
+                .ForeignKey("dbo.Medico", t => t.IdMedico)
+                .ForeignKey("dbo.TipoConsulta", t => t.IdTipoConsulta)
+                .ForeignKey("dbo.Usuario", t => t.IdUsuario)
                 .Index(t => t.IdMedico)
                 .Index(t => t.IdUsuario)
                 .Index(t => t.IdTipoConsulta);
@@ -54,15 +54,14 @@ namespace SisMed.Data.Migrations
                         idCidade = c.Int(nullable: false),
                         idEspecialidade = c.Int(nullable: false),
                         idUsuario = c.Int(nullable: false),
-                        Usuario_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Cidade", t => t.idCidade, cascadeDelete: true)
-                .ForeignKey("dbo.Especialidade", t => t.idEspecialidade, cascadeDelete: true)
-                .ForeignKey("dbo.Usuario", t => t.Usuario_Id)
+                .ForeignKey("dbo.Cidade", t => t.idCidade)
+                .ForeignKey("dbo.Especialidade", t => t.idEspecialidade)
+                .ForeignKey("dbo.Usuario", t => t.idUsuario)
                 .Index(t => t.idCidade)
                 .Index(t => t.idEspecialidade)
-                .Index(t => t.Usuario_Id);
+                .Index(t => t.idUsuario);
             
             CreateTable(
                 "dbo.Especialidade",
@@ -103,8 +102,8 @@ namespace SisMed.Data.Migrations
                         TempoMedio = c.Double(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Medico", t => t.IdMedico, cascadeDelete: true)
-                .ForeignKey("dbo.TipoConsulta", t => t.IdTipoConsulta, cascadeDelete: true)
+                .ForeignKey("dbo.Medico", t => t.IdMedico)
+                .ForeignKey("dbo.TipoConsulta", t => t.IdTipoConsulta)
                 .Index(t => t.IdMedico)
                 .Index(t => t.IdTipoConsulta);
             
@@ -117,12 +116,12 @@ namespace SisMed.Data.Migrations
             DropForeignKey("dbo.Consulta", "IdUsuario", "dbo.Usuario");
             DropForeignKey("dbo.Consulta", "IdTipoConsulta", "dbo.TipoConsulta");
             DropForeignKey("dbo.Consulta", "IdMedico", "dbo.Medico");
-            DropForeignKey("dbo.Medico", "Usuario_Id", "dbo.Usuario");
+            DropForeignKey("dbo.Medico", "idUsuario", "dbo.Usuario");
             DropForeignKey("dbo.Medico", "idEspecialidade", "dbo.Especialidade");
             DropForeignKey("dbo.Medico", "idCidade", "dbo.Cidade");
             DropIndex("dbo.TempoConsulta", new[] { "IdTipoConsulta" });
             DropIndex("dbo.TempoConsulta", new[] { "IdMedico" });
-            DropIndex("dbo.Medico", new[] { "Usuario_Id" });
+            DropIndex("dbo.Medico", new[] { "idUsuario" });
             DropIndex("dbo.Medico", new[] { "idEspecialidade" });
             DropIndex("dbo.Medico", new[] { "idCidade" });
             DropIndex("dbo.Consulta", new[] { "IdTipoConsulta" });
