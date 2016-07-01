@@ -84,6 +84,8 @@ namespace SisMed.WebUI.Controllers
                     ViewBag.MinDate = 1;
                 }
 
+                ViewBag.daysToRemove = mConsultaApp.GetAll().Where(c => c.IdMedico == c.IdUsuario).Select(c => c.Data.Date.ToShortDateString()).ToList().ToArray();
+
                 return new SelectList(query1, "Id", "Nome", IdMedico);
             }
             else
