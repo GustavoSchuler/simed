@@ -24,14 +24,18 @@ namespace SisMed.WebUI.ViewModel
 
         public bool AtendePorConvenio { get; set; }
 
+        [Display(Name = "Possui clínica")]
         public bool TemClinica { get; set; }
 
+        [Display(Name = "WebSite")]
         public string WebSiteBlog { get; set; }
 
         [DataType(DataType.Time)]
+        [Display(Name = "Horário inicial")]
         public DateTime HorarioInicial { get; set; }
 
         [DataType(DataType.Time)]
+        [Display(Name = "Horário final")]
         public DateTime HorarioFinal { get; set; }
 
         public int idCidade{ get; set; }
@@ -39,7 +43,6 @@ namespace SisMed.WebUI.ViewModel
         public int idEspecialidade { get; set; }
 
         public int idUsuario { get; set; }
-
 
         public virtual Cidade Cidade { get; set; }
 

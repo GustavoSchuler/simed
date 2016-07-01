@@ -8,11 +8,11 @@ namespace SisMed.WebUI.ViewModel
 {
     public class ConsultaViewModel
     {
-        [Key]
         public int Id { get; set; }
 
         public int IdMedico { get; set; }
 
+        [Display(Name = "Médico")]
         public virtual Medico Medico { get; set; }
 
         public int IdUsuario { get; set; }
@@ -21,6 +21,7 @@ namespace SisMed.WebUI.ViewModel
 
         public int IdTipoConsulta { get; set; }
 
+        [Display(Name = "Tipo da consulta")]
         public virtual TipoConsulta TipoConsulta { get; set; }
 
         [DataType(DataType.Date)]
@@ -28,8 +29,10 @@ namespace SisMed.WebUI.ViewModel
         public DateTime Data { get; set; }
 
         [DataType(DataType.Time)]
+        [Display(Name = "Hora início")]
         public DateTime HorarioInicio { get; set; }
 
+        [Display(Name = "Observação")]
         public string Observacao { get; set; }
     }
 }

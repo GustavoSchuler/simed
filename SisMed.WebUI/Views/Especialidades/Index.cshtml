@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<SisMed.WebUI.ViewModel.EspecialidadeViewModel>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Controle de Especialidades";
 }
 
-<h2>Index</h2>
+<h2>Controle de Especialidades</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Adicionar", "Create", "" ,new { @class = "btn btn-primary" } )
 </p>
 <table class="table">
     <tr>
@@ -15,16 +15,20 @@
             @Html.DisplayNameFor(model => model.Descricao)
         </th>
         <th></th>
+        <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model)
+{
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Descricao)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            <span class="pull-right"><a href="@Url.Action("Edit", new { id = item.Id })"> <span class="glyphicon glyphicon-pencil"></span></a></span>
+        </td>
+        <td>
+            <span><a href="@Url.Action("Delete", new { id = item.Id })"> <span class="glyphicon glyphicon-trash"></span></a></span>
         </td>
     </tr>
 }

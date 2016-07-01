@@ -17,6 +17,7 @@ namespace SisMed.WebUI.ViewModel
         public int IdTipoConsulta { get; set; }
 
         [Required(ErrorMessage = "Preencha o campo tempo médio")]
+        [Display(Name = "Tempo médio de consulta")]
         public double TempoMedio { get; set; }
 
         public virtual TipoConsulta TipoConsulta { get; set; }

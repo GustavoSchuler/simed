@@ -24,7 +24,6 @@
                 <ul class="nav navbar-nav">
                     @if (Request.IsAuthenticated)
                     {
-                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
                         if (HttpContext.Current.User.IsInRole("ADMIN") || HttpContext.Current.User.IsInRole("MEDICO"))
                         {
                             <li class="dropdown">

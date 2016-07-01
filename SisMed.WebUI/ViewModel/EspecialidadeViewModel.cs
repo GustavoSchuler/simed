@@ -15,6 +15,7 @@ namespace SisMed.WebUI.ViewModel
         [Required(ErrorMessage = "Preencha o campo especialidade")]
         [MaxLength(150, ErrorMessage = "Máximo de {0} caracteres")]
         [MinLength(2, ErrorMessage = "Mímino de {0} caracteres")]
+        [Display(Name = "Especialidade")]
         public string Descricao { get; set; }
     }
 }

@@ -9,12 +9,12 @@ namespace SisMed.WebUI.ViewModel
 {
     public class CidadeViewModel
     {
-        [Key]
-        public int CidadeId { get; set; }
+        public int Id { get; set; }
 
         [Required(ErrorMessage = "Preencha o campo cidade")]
         [MaxLength(150, ErrorMessage = "Máximo de {0} caracteres")]
         [MinLength(2, ErrorMessage = "Mímino de {0} caracteres")]
+        [Display(Name = "Nome da Cidade")]
         public string NomeCidade { get; set; }
     }
 }

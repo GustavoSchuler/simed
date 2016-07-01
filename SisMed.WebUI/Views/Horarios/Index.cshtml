@@ -1,19 +1,20 @@
 ﻿@model IEnumerable<SisMed.WebUI.ViewModel.ConsultaViewModel>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Controle de consultas";
 }
 
-<h2>Index</h2>
+<h2>Controle de consultas</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Adicionar", "Create", "" ,new { @class = "btn btn-primary" } )
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Usuario.Email)
+            @Html.DisplayNameFor(model => model.Data)
         </th>
+        <th></th>
         <th></th>
     </tr>
 
@@ -23,11 +24,9 @@
             @Html.DisplayFor(modelItem => item.Data)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Observacao)
+            <span class="pull-right"><a href="@Url.Action("Delete", new { id = item.Id })"> <span class="glyphicon glyphicon-trash"></span></a></span>
         </td>
-        <td>
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
+        <td></td>
     </tr>
 }
 

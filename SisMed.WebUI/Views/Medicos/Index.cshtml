@@ -7,7 +7,7 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Adicionar", "Create", "" ,new { @class = "btn btn-primary" } )
 </p>
 <table class="table">
     <tr>
@@ -21,14 +21,16 @@
             @Html.DisplayNameFor(model => model.Especialidade)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.HorarioInicial)
+            @Html.DisplayName("Horário inicial")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.HorarioFinal)
+            @Html.DisplayName("Horário final")
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Email)
         </th>
+        <th></th>
+        <th></th>
         <th></th>
     </tr>
 
@@ -53,9 +55,14 @@
             @Html.DisplayFor(modelItem => item.Email)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            <span class="pull-right"><a href="@Url.Action("Edit", new { id = item.Id })"> <span class="glyphicon glyphicon-pencil"></span></a></span>
+        </td>
+        <td>
+            <span class="pull-right"><a href="@Url.Action("Details", new { id = item.Id })"> <span class="glyphicon glyphicon-eye-open"></span></a></span>
+            
+        </td>
+        <td>
+            <span><a href="@Url.Action("Delete", new { id = item.Id })"> <span class="glyphicon glyphicon-trash"></span></a></span>
         </td>
     </tr>
 }
